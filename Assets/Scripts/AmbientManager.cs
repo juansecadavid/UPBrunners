@@ -9,7 +9,7 @@ public class AmbientManager : MonoBehaviour
 
     public float ambientLength = 50;
     public int numberOfAmbients = 1;
-    private int ambientsInScene = 1;
+    private int ambientsInScene = 0;
 
     public float zSpawn = 0;
 
@@ -18,6 +18,8 @@ public class AmbientManager : MonoBehaviour
     void Start()
     {
         SpawnAmbient(0);
+        SpawnAmbient(1);
+        SpawnAmbient(2);
     }
     void Update()
     {
