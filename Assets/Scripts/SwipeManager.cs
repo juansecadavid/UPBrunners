@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwipeManager : MonoBehaviour
 {
-    private static bool _tap, _swipeLeft, _swipeRight, _swipeUp, _swipeDown;
+    public static bool _tap, _swipeLeft, _swipeRight, _swipeUp, _swipeDown;
     private bool _isDraging;
     private Vector2 _startTouch, _swipeDelta;
     private void Update()

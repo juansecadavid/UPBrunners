@@ -6,6 +6,7 @@ public class MovingTowards : MonoBehaviour
 {
     private Rigidbody rigidbody;
     [SerializeField] private float _speed;
+    [SerializeField] private float _speedMove;
     [SerializeField] private float _touchSpeed;
     [SerializeField] private float _maxSpeed;
     private Vector2 touchPos;
@@ -15,30 +16,41 @@ public class MovingTowards : MonoBehaviour
         //_maxSpeed = _speed;
         //rigidbody = GetComponent<Rigidbody>();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            //transform.Translate(Vector3.right * _speed * Time.deltaTime, Space.World);
+            
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            //transform.Translate(-Vector3.right * _speed * Time.deltaTime, Space.World);
+            //transform.Translate(Vector3.left * 3f, Space.World);
+        }
+    }
     void FixedUpdate()
     {
-        if (Input.touchCount > 0)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            // Get the current touch position.
-            Vector2 newTouchPos = Input.touches[0].position;
-
-            // Calculate the difference between the two touch positions.
-            Vector2 deltaPos = newTouchPos - touchPos;
-
-            // Move the player in the direction of the touch.
-            transform.Translate(deltaPos * _touchSpeed * Time.deltaTime);
+            //transform.Translate(Vector3.right * _speed * Time.deltaTime, Space.World);
+            if(transform.position.x<2)
+            {
+                transform.Translate(Vector3.right * _speedMove * Time.deltaTime, Space.World);
+            }
+            
         }
-
-        transform.Translate(-Vector3.right*Time.deltaTime*_speed,Space.World);
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            //transform.Translate(-Vector3.right * _speed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.left * 3f, Space.World);
+        }
+        transform.Translate(Vector3.forward*Time.deltaTime*_speed,Space.World);
         /*rigidbody?.AddForce(transform.forward * _speed * Time.deltaTime);
 
         if (rigidbody.velocity.magnitude > _maxSpeed)
         {
             rigidbody.velocity = rigidbody.velocity.normalized * _maxSpeed;
         }*/
-    }
-    void OnTouchStart(Touch touch)
-    {
-        touchPos = touch.position;
     }
 }
