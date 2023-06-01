@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -227,7 +227,7 @@ MonoBehaviour:
   - {fileID: 1643204855547225731, guid: 470f18680ec75474eb538b7ce4e6bc84, type: 3}
   - {fileID: 5928968755097354151, guid: 3dcaaa6a31556f84d976bf97c3be0130, type: 3}
   - {fileID: 5575084583522538975, guid: 86fcc3f9e571e804ca960eaed6b7e6e5, type: 3}
-  ambientLength: 50
+  ambientLength: 70
   numberOfAmbients: 3
   zSpawn: 0
   playerTransform: {fileID: 2080325705}
@@ -558,7 +558,7 @@ MonoBehaviour:
   - {fileID: 6328286367542219218, guid: 619e63ed5f18f364aa1ade0217d54b0f, type: 3}
   - {fileID: 6643631505172537868, guid: 8f48757dd1721f9469c77d8e400afb82, type: 3}
   tileLength: 50
-  numberOfTiles: 3
+  numberOfTiles: 5
   zSpawn: 0
   playerTransform: {fileID: 2080325705}
 --- !u!4 &497289951
