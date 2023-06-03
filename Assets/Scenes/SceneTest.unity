@@ -981,6 +981,7 @@ MonoBehaviour:
   distanciaMovimientoLateral: 0
   alturaSalto: 5
   velocidadSalto: 5
+  eso: 0
 --- !u!1 &1105131223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1546,8 @@ MonoBehaviour:
   velocidadMovimientoLateral: 20
   distanciaMovimientoLateral: 2
   alturaSalto: 5
-  velocidadSalto: 4
+  velocidadSalto: 10
+  eso: 0
 --- !u!114 &2080325710
 MonoBehaviour:
   m_ObjectHideFlags: 0
