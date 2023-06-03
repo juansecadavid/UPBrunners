@@ -58,7 +58,7 @@ public class SwipeManager : MonoBehaviour
                 if(x<0)
                     _swipeLeft = true;
                 else
-                    _swipeLeft = true;
+                    _swipeRight = true;
             }
             else
             {
