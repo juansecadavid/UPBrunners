@@ -20,8 +20,26 @@ public class Movement : MonoBehaviour
     public float eso=0;
     private float carriles = 0;
 
+    private Animator animator;
+    private Transform child;
     bool firstTime=true;
 
+    private Vector2 touchStartPosition;
+    private Vector2 touchEndedPosition;
+    private void Start()
+    {
+        try
+        {
+            animator = GetComponentInChildren<Animator>();
+            child=GetComponentInChildren<Transform>();
+
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
+    }
     void Update()
     {
         // Verificar si se debe mover lateralmente
@@ -49,26 +67,61 @@ public class Movement : MonoBehaviour
         }
 
         // Verificar deslizamiento táctil
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0&& Input.GetTouch(0).phase==TouchPhase.Began)
         {
-            Touch touch = Input.GetTouch(0);
+            touchStartPosition = Input.GetTouch(0).position;
+        }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            touchEndedPosition = Input.GetTouch(0).position;
 
-            if (touch.phase == TouchPhase.Began)
+            float mayorY = Mathf.Abs(touchStartPosition.y - touchEndedPosition.y);
+            float mayorX = Mathf.Abs(touchStartPosition.x - touchEndedPosition.x);
+            if (mayorY > mayorX)
             {
-                Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-                if (touchPos.x > transform.position.x)
+                if(touchEndedPosition.y<touchStartPosition.y)
                 {
-                    moverDerecha = true;
-                    moverIzquierda = false;
-                    destinoX = transform.position.x + distanciaMovimientoLateral;
+
                 }
                 else
                 {
+                    if (!saltando)
+                    {
+                        saltando = true;
+                        tiempoSalto = 0f;
+                        alturaInicial = transform.position.y;
+                        firstTime = true;
+                        animator?.SetBool("isJumping", true);
+                    }
+                }
+            } 
+            else
+            {
+                if (touchEndedPosition.x < touchStartPosition.x)
+                {
+                    carriles -= distanciaMovimientoLateral;
+                    if (carriles < -distanciaMovimientoLateral)
+                    {
+                        carriles = -distanciaMovimientoLateral;
+                    }
                     moverDerecha = false;
                     moverIzquierda = true;
-                    destinoX = transform.position.x - distanciaMovimientoLateral;
+                    destinoX = carriles;
+                    Debug.Log("Izquierda");
                 }
-            }
+                if (touchEndedPosition.x > touchStartPosition.x)
+                {
+                    carriles += distanciaMovimientoLateral;
+                    if (carriles > distanciaMovimientoLateral)
+                    {
+                        carriles = distanciaMovimientoLateral;
+                    }
+                    moverDerecha = true;
+                    moverIzquierda = false;
+                    destinoX = carriles;
+                    Debug.Log("Derecha");
+                }
+            }         
         }
 
         // Verificar salto
@@ -80,6 +133,7 @@ public class Movement : MonoBehaviour
                 tiempoSalto = 0f;
                 alturaInicial = transform.position.y;
                 firstTime = true;
+                animator?.SetBool("isJumping", true);
             }
         }
     }
@@ -143,6 +197,8 @@ public class Movement : MonoBehaviour
                     Vector3 newPosition = transform.position;
                     newPosition.y = alturaInicial;
                     transform.position = newPosition;
+                    animator?.SetBool("isJumping", false);
+                    
                 }
             }
             
@@ -240,4 +296,12 @@ public class Movement : MonoBehaviour
             }
         }
     }*/
+    private void OnMouseDrag()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("derecha");
+        }
+        
+    }
 }
