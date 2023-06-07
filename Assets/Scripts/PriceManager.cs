@@ -6,29 +6,25 @@ using TMPro;
 
 public class PriceManager : MonoBehaviour
 {
-    public TextMeshProUGUI textoPrecio;
+   public TextMeshProUGUI textoPrecio;
+   public RectTransform panel;
+   public float tolerancia = 10f; // Tolerancia permitida
 
-    void OnTriggerEnter2D(Collider2D collision) 
-    {
-        if(collision.gameObject.CompareTag("Skin 1"))
-        {
-           textoPrecio.text = "$250";
-        }
-        if(collision.gameObject.CompareTag("Skin 2"))
-        {
-           textoPrecio.text = "$150";
-        }
-        if(collision.gameObject.CompareTag("Skin 3"))
-        {
-           textoPrecio.text = "$100";
-        }
-        if(collision.gameObject.CompareTag("Skin 4"))
-        {
-           textoPrecio.text = "$300";
-        }
-        if(collision.gameObject.CompareTag("Skin 5"))
-        {
-           textoPrecio.text = "$150";
-        }
-    }
+   private void Update()
+   {
+      float posicionX = panel.anchoredPosition.x;
+
+      if(Mathf.Abs(posicionX - 105f) <= tolerancia || Mathf.Abs(posicionX - 833f) <= tolerancia)
+      {
+         textoPrecio.text = "Comprar $100";
+      }
+      if(Mathf.Abs(posicionX - 620f) <= tolerancia || Mathf.Abs(posicionX - 317f) <= tolerancia)
+      {
+         textoPrecio.text = "Comprar $300";
+      }
+      if( Mathf.Abs(posicionX - -401f) <= tolerancia || Mathf.Abs(posicionX - 1339f) <= tolerancia)
+      {
+         textoPrecio.text = "Comprar $200";
+      }
+   }
 }
