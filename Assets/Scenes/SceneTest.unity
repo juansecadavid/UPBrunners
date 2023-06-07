@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1432,11 +1432,8 @@ GameObject:
   - component: {fileID: 2080325704}
   - component: {fileID: 2080325703}
   - component: {fileID: 2080325702}
-  - component: {fileID: 2080325706}
   - component: {fileID: 2080325707}
-  - component: {fileID: 2080325708}
   - component: {fileID: 2080325709}
-  - component: {fileID: 2080325710}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1524,20 +1521,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &2080325706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080325700}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f5ab3c03379fdd42b41cc8bc81c2f8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forwardSpeed: 10
-  lineDistance: 3
 --- !u!143 &2080325707
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1556,25 +1539,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2080325708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080325700}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54267ebccfabada418c8fd7b10fecccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 3
-  _speedMove: 15
-  _touchSpeed: 0
-  _maxSpeed: 0
-  lineDistance: 2
-  touchPos: {x: 0, y: 0}
-  touchDir: {x: 0, y: 0, z: 0}
 --- !u!114 &2080325709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,24 +1557,6 @@ MonoBehaviour:
   alturaSalto: 5
   velocidadSalto: 10
   eso: 0
---- !u!114 &2080325710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080325700}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a135bd421ecb69f439206b3296a2a6c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidadMovimiento: 8
-  carrilesParent: {fileID: 1079109580}
-  carrilesPositions: []
-  carrilPositionActual: {fileID: 0}
-  carrilActualIndex: 1
-  playerHorizontalSpeed: 10
 --- !u!1 &221473406147134071
 GameObject:
   m_ObjectHideFlags: 0

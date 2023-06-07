@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PriceManager
+  - Skin 1
+  - Skin 2
+  - Skin 3
+  - Skin 4
+  - Skin 5
   layers:
   - Default
   - TransparentFX
