@@ -5,7 +5,7 @@ using UnityEngine;
 public class UpdateSpped : MonoBehaviour
 {
     private Movement movement;
-    private float gameTime;
+    private float gameTime=0f;
     [SerializeField]
     private float maxTime;
     [SerializeField]
@@ -14,13 +14,14 @@ public class UpdateSpped : MonoBehaviour
     void Start()
     {
         movement = GetComponent<Movement>();
-        gameTime = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         gameTime+=Time.deltaTime;
+        float currentSpeed = Mathf.Lerp(movement.velocidadMovimiento,maxSpeed,gameTime/maxTime);
+        movement.velocidadMovimiento = currentSpeed;
         
     }
 }

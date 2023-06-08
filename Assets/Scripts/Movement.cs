@@ -14,10 +14,12 @@ public class Movement : MonoBehaviour
     private bool moverIzquierda = false;
     private float destinoX;
     private bool saltando = false;
+    private bool rolling=false;
     private float tiempoSubiendo = 1f;
     private float tiempoSalto = 0f;
     private float alturaInicial;
     public float eso=0;
+    private float rollingTime=0f;
     private float carriles = 0;
 
     private Animator animator;
@@ -81,7 +83,20 @@ public class Movement : MonoBehaviour
             {
                 if(touchEndedPosition.y<touchStartPosition.y)
                 {
-
+                    if(!rolling)
+                    {
+                        rolling = true;
+                        rollingTime = 0f;
+                        animator?.SetBool("isRolling", true);
+                        if (saltando)
+                        {
+                            saltando = false;
+                            Vector3 newPosition = transform.position;
+                            newPosition.y = alturaInicial;
+                            transform.position = newPosition;
+                            animator?.SetBool("isJumping", false);
+                        }
+                    }
                 }
                 else
                 {
@@ -123,7 +138,20 @@ public class Movement : MonoBehaviour
                 }
             }         
         }
-
+        if (rolling)
+        {
+            rollingTime += Time.deltaTime;
+            if (rollingTime >  0.8f)
+            {
+                rolling = false;
+                animator?.SetBool("isRolling", false);
+            }
+            if(saltando)
+            {
+                rolling = false;
+                animator?.SetBool("isRolling", false);
+            }
+        }
         // Verificar salto
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -134,6 +162,23 @@ public class Movement : MonoBehaviour
                 alturaInicial = transform.position.y;
                 firstTime = true;
                 animator?.SetBool("isJumping", true);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (!rolling)
+            {
+                rolling=true;
+                rollingTime=0f;
+                animator?.SetBool("isRolling", true);
+                if(saltando)
+                {
+                    saltando = false;
+                    Vector3 newPosition = transform.position;
+                    newPosition.y = alturaInicial;
+                    transform.position = newPosition;
+                    animator?.SetBool("isJumping", false);
+                }
             }
         }
     }
@@ -200,8 +245,7 @@ public class Movement : MonoBehaviour
                     animator?.SetBool("isJumping", false);
                     
                 }
-            }
-            
+            }       
         }
     }
     /*
