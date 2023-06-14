@@ -7,7 +7,7 @@ public class AmbientManager : MonoBehaviour
     private List<GameObject> activeAmbients = new List<GameObject>();
     public GameObject[] ambientPrefabs;
 
-    public float ambientLength = 70;
+    public float ambientLength = 100;
     public int numberOfAmbients = 1;
     private int ambientsInScene = 0;
 
