@@ -9,7 +9,7 @@ public class AmbientManager : MonoBehaviour
 
     public float ambientLength = 100;
     public int numberOfAmbients = 1;
-    private int ambientsInScene = 0;
+    private int ambientsInScene = 3;
 
     public float zSpawn = 0;
 
@@ -29,7 +29,7 @@ public class AmbientManager : MonoBehaviour
             ambientsInScene++;
             if(ambientsInScene == ambientPrefabs.Length)
             {
-                ambientsInScene = 0;
+                ambientsInScene = 1;
             }
             DeleteAmbient();
         }   

@@ -226,8 +226,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ambientPrefabs:
   - {fileID: 1643204855547225731, guid: 470f18680ec75474eb538b7ce4e6bc84, type: 3}
-  - {fileID: 5928968755097354151, guid: 3dcaaa6a31556f84d976bf97c3be0130, type: 3}
-  - {fileID: 5575084583522538975, guid: 86fcc3f9e571e804ca960eaed6b7e6e5, type: 3}
+  - {fileID: 4039336211101376499, guid: 880ba90bf27534ff2b9ba48c357630e5, type: 3}
+  - {fileID: 3421177034035423139, guid: 40e86a69cb13a443ba5885a205eec53e, type: 3}
+  - {fileID: 792204849012026228, guid: 17178e6d575cf4ec88d70edf3ca64a21, type: 3}
+  - {fileID: 6117379440716447488, guid: 4edf116d59a364918a6e92d1133eeef7, type: 3}
   ambientLength: 70
   numberOfAmbients: 3
   zSpawn: 0
