@@ -15,4 +15,8 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    public void FailedAttemp()
+    {
+        //Llamar a la panatalla de perder
+    }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Skin 3
   - Skin 4
   - Skin 5
+  - Obstacle
   layers:
   - Default
   - TransparentFX
