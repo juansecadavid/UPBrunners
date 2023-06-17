@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseSystem : MonoBehaviour
 {
@@ -32,6 +33,12 @@ public class PauseSystem : MonoBehaviour
             panelPause.SetActive(true);
             Time.timeScale = 0;
         }       
+    }
+    public void RestartLevel()
+    {
+        Scene active = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(active.buildIndex);
+        Time.timeScale = 1;
     }
 
 }

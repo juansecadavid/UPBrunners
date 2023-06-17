@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4078167522235773887}
   - component: {fileID: 1096437755777055770}
   - component: {fileID: 2941874328926030032}
+  - component: {fileID: 3469287837669530189}
+  - component: {fileID: 3469287837669530188}
   m_Layer: 0
   m_Name: coinbx
   m_TagString: Untagged
@@ -83,3 +85,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3469287837669530189
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734433440927688965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020000013, y: 0.02000001, z: 0.0020898255}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3469287837669530188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734433440927688965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91effe1a6323a614f9050afb28b56327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -22,12 +22,19 @@ public class Movement : MonoBehaviour
     private float rollingTime=0f;
     private float carriles = 0;
 
+    private bool isTouchingTable=false;
+
     private Animator animator;
     private Transform child;
     bool firstTime=true;
 
     private Vector2 touchStartPosition;
     private Vector2 touchEndedPosition;
+
+    public bool Rolling { get => rolling; set => rolling = value; }
+    public bool IsTouchingTable { get => isTouchingTable; set => isTouchingTable = value; }
+    public bool Saltando { get => saltando; set => saltando = value; }
+
     private void Start()
     {
         try
@@ -220,7 +227,15 @@ public class Movement : MonoBehaviour
             float a = alturaInicial + velocidadSalto * tiempoSalto;
             float alturaSaltoActual = a+c;
             tiempoSalto += Time.fixedDeltaTime;
-            if(firstTime)
+            if (isTouchingTable == true)
+            {
+                alturaInicial = 3.5f;
+            }
+            else
+            {
+                alturaInicial = 1.5f;
+            }
+            if (firstTime)
             {
                 alturaSaltoActual = alturaInicial + (velocidadSalto * tiempoSalto) + ((1 / 2) * (-9.8f) * (tiempoSalto * tiempoSalto));
                 Vector3 newPosition = transform.position;
@@ -235,6 +250,7 @@ public class Movement : MonoBehaviour
                     Vector3 newPosition = transform.position;
                     newPosition.y = alturaSaltoActual;
                     transform.position = newPosition;
+
                 }
                 else
                 {
