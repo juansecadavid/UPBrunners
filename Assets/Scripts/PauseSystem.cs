@@ -8,6 +8,10 @@ public class PauseSystem : MonoBehaviour
     private bool isPaused=false;
     [SerializeField]
     private GameObject panelPause;
+    [SerializeField]
+    private Movement mov;
+    [SerializeField]
+    private UpdateSpped updtSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +28,28 @@ public class PauseSystem : MonoBehaviour
         if (isPaused)
         {
             isPaused = false;
+            if(mov!=null)
+            {
+                mov.enabled = true;
+            }
+            if(updtSpeed!=null)
+            {
+                updtSpeed.enabled = true;
+            }
             panelPause.SetActive(false);
             Time.timeScale = 1;
         } 
         else
         {
             isPaused = true;
+            if (mov != null)
+            {
+                mov.enabled = false;
+            }
+            if(updtSpeed != null)
+            {
+                updtSpeed.enabled = false;
+            }
             panelPause.SetActive(true);
             Time.timeScale = 0;
         }       

@@ -39,6 +39,8 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = -1;
         try
         {
             animator = GetComponentInChildren<Animator>();
@@ -146,6 +148,13 @@ public class Movement : MonoBehaviour
                     }
                     moverDerecha = false;
                     moverIzquierda = true;
+                    if (destinoX != carriles)
+                    {
+                        animator?.SetBool("runRight", false);
+                        animator?.SetBool("runLeft", true);
+                        changingTime = 0f;
+                        isChanging = true;
+                    }
                     destinoX = carriles;
                     Debug.Log("Izquierda");
                 }
@@ -158,6 +167,13 @@ public class Movement : MonoBehaviour
                     }
                     moverDerecha = true;
                     moverIzquierda = false;
+                    if (destinoX != carriles)
+                    {
+                        animator?.SetBool("runLeft", false);
+                        animator?.SetBool("runRight", true);
+                        changingTime = 0f;
+                        isChanging = true;
+                    }
                     destinoX = carriles;
                     Debug.Log("Derecha");
                 }
