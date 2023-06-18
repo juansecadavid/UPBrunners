@@ -40,5 +40,10 @@ public class PauseSystem : MonoBehaviour
         SceneManager.LoadScene(active.buildIndex);
         Time.timeScale = 1;
     }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Inicio");
+        Time.timeScale=1;   
+    }
 
 }

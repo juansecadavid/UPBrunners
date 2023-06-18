@@ -32,7 +32,7 @@ public class LoadingWindow : MonoBehaviour
         {
             if(operation.progress>=0.9f)
             {
-                if(contador>player.clip.length+1)
+                if(contador>player.clip.length+2f)
                 {
                     operation.allowSceneActivation=true;
                 }

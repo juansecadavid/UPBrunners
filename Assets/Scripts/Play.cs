@@ -10,4 +10,8 @@ public class Play : MonoBehaviour
     {
         SceneManager.LoadScene("LoadingScene1");
     }
+    public void Prueba()
+    {
+        SceneManager.LoadScene("SceneTest");
+    }
 }

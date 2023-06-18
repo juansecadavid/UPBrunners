@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour
     public float eso=0;
     private float rollingTime=0f;
     private float carriles = 0;
+    private float changingTime=0f;
+    private bool isChanging=false;
 
     private bool isTouchingTable=false;
 
@@ -61,7 +63,15 @@ public class Movement : MonoBehaviour
             }
             moverDerecha = true;
             moverIzquierda = false;
+            if(destinoX!=carriles)
+            {
+                animator?.SetBool("runLeft", false);
+                animator?.SetBool("runRight", true);          
+                changingTime = 0f;
+                isChanging = true;
+            }
             destinoX = carriles;
+            
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -72,7 +82,15 @@ public class Movement : MonoBehaviour
             }
             moverDerecha = false;
             moverIzquierda = true;
+            if(destinoX != carriles)
+            {
+                animator?.SetBool("runRight", false);
+                animator?.SetBool("runLeft", true);
+                changingTime = 0f;
+                isChanging = true;
+            }
             destinoX = carriles;
+            
         }
 
         // Verificar deslizamiento táctil
@@ -157,6 +175,16 @@ public class Movement : MonoBehaviour
             {
                 rolling = false;
                 animator?.SetBool("isRolling", false);
+            }
+        }
+        if(isChanging)
+        {
+            changingTime += Time.deltaTime;
+            if(changingTime>0.1f)
+            {
+                isChanging = false;
+                animator?.SetBool("runRight", false);
+                animator?.SetBool("runLeft",false);
             }
         }
         // Verificar salto
