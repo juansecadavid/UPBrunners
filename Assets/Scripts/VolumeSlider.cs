@@ -13,13 +13,14 @@ public class VolumeSlider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_Slider.value = VolumeManager.volumeValue;
     }
 
     // Update is called once per frame
     void Update()
     {
         m_AudioSource.volume = m_Slider.value;
+        VolumeManager.volumeValue = m_Slider.value;
     }
     public void VolumeVariable()
     {

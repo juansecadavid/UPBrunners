@@ -6,6 +6,7 @@ using UnityEngine.Video;
 
 public class LoadingWindow : MonoBehaviour
 {
+    VideoSource source;
     VideoPlayer player;
     private float contador = 0f;
     [SerializeField]
