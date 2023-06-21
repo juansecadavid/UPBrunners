@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public static class GameManager 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private static int highScore=0;
+    private static int loses=0;
+    private static float volume=0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void FailedAttemp()
+    public static int HighScore { get => highScore; set => highScore = value; }
+    public static int Loses { get => loses; set => loses = value; }
+    public static float Volume { get => volume; set => volume = value; }
+
+    public static void FailedAttemp()
     {
         //Llamar a la panatalla de perder
     }

@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class CrashRolling : MonoBehaviour
 {
-    [SerializeField]
-    private GameManager gameManager;
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            Movement mov= other.GetComponentInParent<Movement>();   
-            if(mov.Rolling==false)
+            Movement mov= other.GetComponentInParent<Movement>();
+            Score score = other.GetComponentInParent<Score>();
+            if (mov.Rolling==false)
             {
                 mov.enabled = false;
-                gameManager?.FailedAttemp();
+                score.enabled = false;
+                if (score.CurrentNumber >= GameManager.HighScore)
+                {
+                    GameManager.HighScore = score.CurrentNumber;
+                    SaveSystem.SaveGame();
+                }
             }
         }
     }

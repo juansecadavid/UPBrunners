@@ -17,6 +17,7 @@ public class LoadingWindow : MonoBehaviour
         player = GetComponent<VideoPlayer>();
         player.clip = videoClips[Random.Range(0,videoClips.Length)];
         Debug.Log($"{videoClips.Length}");
+        player.Play();
         StartCoroutine(StartCharge());
     }
 

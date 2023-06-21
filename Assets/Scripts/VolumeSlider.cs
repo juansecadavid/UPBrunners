@@ -11,20 +11,18 @@ public class VolumeSlider : MonoBehaviour
     [SerializeField]
     private Slider m_Slider;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        SaveSystem.LoadVolume();
+    }
     void Start()
     {
-        m_Slider.value = VolumeManager.volumeValue;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        m_AudioSource.volume = m_Slider.value;
-        VolumeManager.volumeValue = m_Slider.value;
+        m_Slider.value = GameManager.Volume;
     }
     public void VolumeVariable()
     {
-        
         m_AudioSource.volume = m_Slider.value;
+        GameManager.Volume = m_AudioSource.volume;
+        SaveSystem.SaveVolume();
     }
 }

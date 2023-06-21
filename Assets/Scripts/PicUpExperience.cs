@@ -9,8 +9,8 @@ public class PicUpExperience : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Score score = other.GetComponentInParent<Score>();
-            score.CurrentNumber += 50;
+            PowerCoins coins = other.GetComponentInParent<PowerCoins>();
+            coins.Coins ++;
             Destroy(gameObject);
         }
     }
