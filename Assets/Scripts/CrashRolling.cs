@@ -19,6 +19,8 @@ public class CrashRolling : MonoBehaviour
                     GameManager.HighScore = score.CurrentNumber;
                     SaveSystem.SaveGame();
                 }
+                LevelManager levelMan = FindObjectOfType<LevelManager>();
+                levelMan.Lose();
             }
         }
     }

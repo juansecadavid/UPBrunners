@@ -25,4 +25,12 @@ public class VolumeSlider : MonoBehaviour
         GameManager.Volume = m_AudioSource.volume;
         SaveSystem.SaveVolume();
     }
+    public void StopMusic()
+    {
+        m_AudioSource.Pause();
+    }
+    public void PlayMusic()
+    {
+        m_AudioSource.Play();
+    }
 }

@@ -33,4 +33,17 @@ public static class SaveSystem
         else
             GameManager.Volume = 1f;
     }
+    public static void SaveSkin()
+    {
+        PlayerPrefs.SetInt("skin", GameManager.Skin);
+    }
+    public static void LoadSkin()
+    {
+        if (PlayerPrefs.HasKey("skin"))
+        {
+            GameManager.Skin = PlayerPrefs.GetInt("skin");
+        }
+        else
+            GameManager.Skin = 0;
+    }
 }

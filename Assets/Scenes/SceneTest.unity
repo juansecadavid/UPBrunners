@@ -1623,7 +1623,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4dfc9137c2f132643bc01852ee6d0a47,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4dfc9137c2f132643bc01852ee6d0a47,
         type: 3}
@@ -2219,6 +2219,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1183257160}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: PlayMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &385149386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2311,7 +2323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &388816444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3714,6 +3726,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700632524}
   m_CullTransparentMesh: 1
+--- !u!1 &712734582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4dfc9137c2f132643bc01852ee6d0a47,
+    type: 3}
+  m_PrefabInstance: {fileID: 271252194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &729410698
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,7 +3862,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b713f2614051f694a9721c5c813b3ff5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b713f2614051f694a9721c5c813b3ff5,
         type: 3}
@@ -3934,7 +3952,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b713f2614051f694a9721c5c813b3ff5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b713f2614051f694a9721c5c813b3ff5,
         type: 3}
@@ -5941,6 +5959,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1380762815}
+  - component: {fileID: 1380762816}
+  - component: {fileID: 1380762817}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -5963,6 +5983,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1380762816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380762814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13bf0bc5a59c9b40bac3ce39ede4305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  automatic: {fileID: 1522236804}
+  principalCollider: {fileID: 981775943}
+--- !u!114 &1380762817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380762814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d76b3378066cea4a9a65447a86caf6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelLose: {fileID: 2125830731}
 --- !u!1 &1381074553
 GameObject:
   m_ObjectHideFlags: 0
@@ -6496,6 +6543,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491996140}
   m_CullTransparentMesh: 1
+--- !u!1 &1522236800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1522236801}
+  - component: {fileID: 1522236803}
+  - component: {fileID: 1522236805}
+  - component: {fileID: 1522236804}
+  m_Layer: 0
+  m_Name: AutoColl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1522236801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522236800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2080325705}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1522236803
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522236800}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1522236804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522236800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e052292850dd3ed4fa5708226c0b7d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1522236805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522236800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.52, y: 1, z: 1}
+  m_Center: {x: 4.59, y: 0, z: 0}
 --- !u!1 &1564728885
 GameObject:
   m_ObjectHideFlags: 0
@@ -7201,6 +7323,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1183257160}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: StopMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1881995932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7691,6 +7825,7 @@ GameObject:
   - component: {fileID: 2080325711}
   - component: {fileID: 2080325713}
   - component: {fileID: 2080325714}
+  - component: {fileID: 2080325715}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7761,6 +7896,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 981775944}
+  - {fileID: 1522236801}
   - {fileID: 1435708649}
   - {fileID: 2031918531}
   m_Father: {fileID: 0}
@@ -7837,6 +7973,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsText: {fileID: 324812110}
+--- !u!114 &2080325715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080325700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc111a5eea5821e45a58a60ab76ac69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 712734582}
+  - {fileID: 2031918530}
 --- !u!1 &2125830731
 GameObject:
   m_ObjectHideFlags: 0

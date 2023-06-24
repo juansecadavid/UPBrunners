@@ -18,6 +18,8 @@ public class Crashing : MonoBehaviour
                 GameManager.HighScore = score.CurrentNumber;
                 SaveSystem.SaveGame();
             }
+            LevelManager levelMan=FindObjectOfType<LevelManager>();
+            levelMan.Lose();
         }
     }
 }

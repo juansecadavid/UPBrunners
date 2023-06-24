@@ -58,40 +58,12 @@ public class Movement : MonoBehaviour
         // Verificar si se debe mover lateralmente
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            carriles += distanciaMovimientoLateral;
-            if (carriles > distanciaMovimientoLateral)
-            {
-                carriles = distanciaMovimientoLateral;
-            }
-            moverDerecha = true;
-            moverIzquierda = false;
-            if(destinoX!=carriles)
-            {
-                animator?.SetBool("runLeft", false);
-                animator?.SetBool("runRight", true);          
-                changingTime = 0f;
-                isChanging = true;
-            }
-            destinoX = carriles;
+            MoveRight();
             
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            carriles -= distanciaMovimientoLateral;
-            if (carriles < -distanciaMovimientoLateral)
-            {
-                carriles = -distanciaMovimientoLateral;
-            }
-            moverDerecha = false;
-            moverIzquierda = true;
-            if(destinoX != carriles)
-            {
-                animator?.SetBool("runRight", false);
-                animator?.SetBool("runLeft", true);
-                changingTime = 0f;
-                isChanging = true;
-            }
-            destinoX = carriles;
+            MoveLeft();
             
         }
 
@@ -110,72 +82,22 @@ public class Movement : MonoBehaviour
             {
                 if(touchEndedPosition.y<touchStartPosition.y)
                 {
-                    if(!rolling)
-                    {
-                        rolling = true;
-                        rollingTime = 0f;
-                        animator?.SetBool("isRolling", true);
-                        if (saltando)
-                        {
-                            saltando = false;
-                            Vector3 newPosition = transform.position;
-                            newPosition.y = alturaInicial;
-                            transform.position = newPosition;
-                            animator?.SetBool("isJumping", false);
-                        }
-                    }
+                    Roll();
                 }
                 else
                 {
-                    if (!saltando)
-                    {
-                        saltando = true;
-                        tiempoSalto = 0f;
-                        alturaInicial = transform.position.y;
-                        firstTime = true;
-                        animator?.SetBool("isJumping", true);
-                    }
+                   Jump();
                 }
             } 
             else
             {
                 if (touchEndedPosition.x < touchStartPosition.x)
                 {
-                    carriles -= distanciaMovimientoLateral;
-                    if (carriles < -distanciaMovimientoLateral)
-                    {
-                        carriles = -distanciaMovimientoLateral;
-                    }
-                    moverDerecha = false;
-                    moverIzquierda = true;
-                    if (destinoX != carriles)
-                    {
-                        animator?.SetBool("runRight", false);
-                        animator?.SetBool("runLeft", true);
-                        changingTime = 0f;
-                        isChanging = true;
-                    }
-                    destinoX = carriles;
-                    Debug.Log("Izquierda");
+                    MoveLeft();
                 }
                 if (touchEndedPosition.x > touchStartPosition.x)
                 {
-                    carriles += distanciaMovimientoLateral;
-                    if (carriles > distanciaMovimientoLateral)
-                    {
-                        carriles = distanciaMovimientoLateral;
-                    }
-                    moverDerecha = true;
-                    moverIzquierda = false;
-                    if (destinoX != carriles)
-                    {
-                        animator?.SetBool("runLeft", false);
-                        animator?.SetBool("runRight", true);
-                        changingTime = 0f;
-                        isChanging = true;
-                    }
-                    destinoX = carriles;
-                    Debug.Log("Derecha");
+                    MoveRight();
                 }
             }         
         }
@@ -206,31 +128,11 @@ public class Movement : MonoBehaviour
         // Verificar salto
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!saltando)
-            {
-                saltando = true;
-                tiempoSalto = 0f;
-                alturaInicial = transform.position.y;
-                firstTime = true;
-                animator?.SetBool("isJumping", true);
-            }
+            Jump();
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if (!rolling)
-            {
-                rolling=true;
-                rollingTime=0f;
-                animator?.SetBool("isRolling", true);
-                if(saltando)
-                {
-                    saltando = false;
-                    Vector3 newPosition = transform.position;
-                    newPosition.y = alturaInicial;
-                    transform.position = newPosition;
-                    animator?.SetBool("isJumping", false);
-                }
-            }
+            Roll();
         }
     }
 
@@ -308,98 +210,70 @@ public class Movement : MonoBehaviour
             }       
         }
     }
-    /*
-    public float velocidadMovimiento = 5f;  // Velocidad de movimiento del jugador
-    public float velocidadMovimientoLateral = 5f;  // Velocidad de movimiento lateral del jugador
-    public float distanciaMovimientoLateral = 3f;  // Distancia a moverse lateralmente al deslizar
-
-    private bool moverDerecha = false;
-    private bool moverIzquierda = false;
-    private float destinoX;
-
-    private float carriles=0;
-
-
-
-    void Update()
+    public void MoveRight()
     {
-        // Verificar si se debe mover lateralmente
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        carriles += distanciaMovimientoLateral;
+        if (carriles > distanciaMovimientoLateral)
         {
-            carriles+=distanciaMovimientoLateral;
-            if(carriles>distanciaMovimientoLateral)
-            {
-                carriles = distanciaMovimientoLateral;
-            }
-            moverDerecha = true;
-            moverIzquierda = false;
-            destinoX = carriles;
+            carriles = distanciaMovimientoLateral;
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        moverDerecha = true;
+        moverIzquierda = false;
+        if (destinoX != carriles)
         {
-            carriles -= distanciaMovimientoLateral;
-            if (carriles < -distanciaMovimientoLateral)
-            {
-                carriles = -distanciaMovimientoLateral;
-            }
-            moverDerecha = false;
-            moverIzquierda = true;
-            destinoX = carriles;
+            animator?.SetBool("runLeft", false);
+            animator?.SetBool("runRight", true);
+            changingTime = 0f;
+            isChanging = true;
         }
-
-        // Verificar deslizamiento táctil
-        if (Input.touchCount > 0)
+        destinoX = carriles;
+    }
+    public void MoveLeft()
+    {
+        carriles -= distanciaMovimientoLateral;
+        if (carriles < -distanciaMovimientoLateral)
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
+            carriles = -distanciaMovimientoLateral;
+        }
+        moverDerecha = false;
+        moverIzquierda = true;
+        if (destinoX != carriles)
+        {
+            animator?.SetBool("runRight", false);
+            animator?.SetBool("runLeft", true);
+            changingTime = 0f;
+            isChanging = true;
+        }
+        destinoX = carriles;
+    }
+    public void Roll()
+    {
+        if (!rolling)
+        {
+            rolling = true;
+            rollingTime = 0f;
+            animator?.SetBool("isRolling", true);
+            if (saltando)
             {
-                Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-                if (touchPos.x > transform.position.x)
-                {
-                    moverDerecha = true;
-                    moverIzquierda = false;
-                    destinoX = transform.position.x + distanciaMovimientoLateral;
-                }
-                else
-                {
-                    moverDerecha = false;
-                    moverIzquierda = true;
-                    destinoX = transform.position.x - distanciaMovimientoLateral;
-                }
+                saltando = false;
+                Vector3 newPosition = transform.position;
+                newPosition.y = alturaInicial;
+                transform.position = newPosition;
+                animator?.SetBool("isJumping", false);
             }
         }
     }
-
-    void FixedUpdate()
+    public void Jump()
     {
-        // Movimiento hacia adelante constante
-        transform.Translate(Vector3.forward * velocidadMovimiento * Time.fixedDeltaTime, Space.World);
-
-        // Movimiento lateral hacia el destino
-        if (moverDerecha)
+        if (!saltando)
         {
-            if (transform.position.x < destinoX)
-                transform.Translate(Vector3.right * velocidadMovimientoLateral * Time.fixedDeltaTime, Space.World);
-            else
-            {
-                Vector3 newPos = new Vector3(destinoX, transform.position.y, transform.position.z);
-                transform.position = newPos;
-                moverDerecha = false;
-            }
+            saltando = true;
+            tiempoSalto = 0f;
+            alturaInicial = transform.position.y;
+            firstTime = true;
+            animator?.SetBool("isJumping", true);
         }
-        else if (moverIzquierda)
-        {
-            if (transform.position.x > destinoX)
-                transform.Translate(Vector3.left * velocidadMovimientoLateral * Time.fixedDeltaTime, Space.World);
-            else
-            {
-                Vector3 newPos = new Vector3(destinoX, transform.position.y, transform.position.z);
-                transform.position = newPos;
-                moverIzquierda = false;
-            }
-        }
-    }*/
+    }
     private void OnMouseDrag()
     {
         if(Input.GetMouseButtonDown(0))
