@@ -15,6 +15,7 @@ public class LoadGame : MonoBehaviour
         SaveSystem.LoadGame(); 
         SaveSystem.LoadVolume();
         SaveSystem.LoadSkin();
+        SaveSystem.LoadSchool();
         highScoreText.text = $"HighScore {GameManager.HighScore}";
         skins[GameManager.Skin].SetActive(true);
     }

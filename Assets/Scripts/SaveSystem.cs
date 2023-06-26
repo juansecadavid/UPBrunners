@@ -13,8 +13,7 @@ public static class SaveSystem
         else
         {
             GameManager.HighScore = 0;
-        }
-        
+        }     
     }
     public static void SaveGame()
     {
@@ -45,5 +44,18 @@ public static class SaveSystem
         }
         else
             GameManager.Skin = 0;
+    }
+    public static void SaveSchool()
+    {
+        PlayerPrefs.SetInt("school", GameManager.School);
+    }
+    public static void LoadSchool()
+    {
+        if (PlayerPrefs.HasKey("school"))
+        {
+            GameManager.School = PlayerPrefs.GetInt("school");
+        }
+        else
+            GameManager.School = 0;
     }
 }

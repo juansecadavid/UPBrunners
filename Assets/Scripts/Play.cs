@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class Play : MonoBehaviour
 {
@@ -13,7 +15,13 @@ public class Play : MonoBehaviour
     private GameObject panelSkin;
     private bool configPanel=false;
     private bool configSkin=false;
+    [SerializeField]
+    private TMP_Dropdown schoolDrop;
     // Start is called before the first frame update
+    private void Start()
+    {
+        schoolDrop.value = GameManager.School;
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("LoadingScene1");
@@ -50,5 +58,10 @@ public class Play : MonoBehaviour
             panelGeneral.SetActive(false);
             configSkin=true;
         }
+    }
+    public void School()
+    {
+        GameManager.School = schoolDrop.value;
+        SaveSystem.SaveSchool();
     }
 }
