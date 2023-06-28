@@ -48,7 +48,12 @@ public class LevelManager : MonoBehaviour
     {
         player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 5);
         Movement mov=player.GetComponent<Movement>();
+        UpdateSpped upd = player.GetComponent<UpdateSpped>();
+        Score score = player.GetComponent<Score>();
+        mov.HasRespawn();
         mov.enabled = true;
+        upd.enabled = true;
+        score.enabled = true;
         animator.enabled = true;
         panelFirstLose.SetActive(false);
     }
