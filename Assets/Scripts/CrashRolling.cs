@@ -8,20 +8,28 @@ public class CrashRolling : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Movement mov= other.GetComponentInParent<Movement>();
-            Score score = other.GetComponentInParent<Score>();
-            if (mov.Rolling==false)
+            StartCoroutine(Lose(other));
+        }
+    }
+    IEnumerator Lose(Collider other)
+    {
+        Movement mov = other.GetComponentInParent<Movement>();
+        UpdateSpped upd = other.GetComponentInParent<UpdateSpped>();
+        Score score = other.GetComponentInParent<Score>();
+        if (mov.Rolling == false)
+        {
+            mov.HasLost();
+            mov.enabled = false;
+            score.enabled = false;
+            upd.enabled = false;
+            yield return new WaitForSeconds(1.5f);
+            if (score.CurrentNumber >= GameManager.HighScore)
             {
-                mov.enabled = false;
-                score.enabled = false;
-                if (score.CurrentNumber >= GameManager.HighScore)
-                {
-                    GameManager.HighScore = score.CurrentNumber;
-                    SaveSystem.SaveGame();
-                }
-                LevelManager levelMan = FindObjectOfType<LevelManager>();
-                levelMan.Lose();
+                GameManager.HighScore = score.CurrentNumber;
+                SaveSystem.SaveGame();
             }
+            LevelManager levelMan = FindObjectOfType<LevelManager>();
+            levelMan.Lose();
         }
     }
 }

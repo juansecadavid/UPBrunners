@@ -274,6 +274,17 @@ public class Movement : MonoBehaviour
             animator?.SetBool("isJumping", true);
         }
     }
+    public void HasLost()
+    {
+        Vector3 newPos = transform.position;
+        newPos.z = transform.position.z - 1;
+        transform.position = newPos;
+        animator.SetBool("hasLost", true);
+    }
+    public void HasRespawn()
+    {
+        animator.SetBool("hasLost", false);
+    }
     private void OnMouseDrag()
     {
         if(Input.GetMouseButtonDown(0))
