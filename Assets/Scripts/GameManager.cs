@@ -9,10 +9,12 @@ public static class GameManager
     private static float volume=0;
     private static int skin=0;
     private static int school=0;
+    private static int letras = 0;
 
     public static int HighScore { get => highScore; set => highScore = value; }
     public static int Loses { get => loses; set => loses = value; }
     public static float Volume { get => volume; set => volume = value; }
     public static int Skin { get => skin; set => skin = value; }
     public static int School { get => school; set => school = value; }
+    public static int Letras { get => letras; set => letras = value; }
 }

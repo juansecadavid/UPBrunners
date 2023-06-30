@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PickUpLetras : MonoBehaviour
 {
+    [SerializeField]
+    private int letra;
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-            
+            GameManager.Letras = letra;
+            Destroy(gameObject);           
         }     
     }
 }

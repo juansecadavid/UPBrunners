@@ -20,5 +20,16 @@ public class PlayAutomatic : MonoBehaviour
         {
             mov.Roll();
         }
+        else if(other.CompareTag("Tree"))
+        {
+            if(transform.position.x<=0f)
+            {
+                mov.MoveRight();
+            }
+            else if(transform.position.x>0f)
+            {
+                mov.MoveLeft();
+            }
+        }
     }
 }

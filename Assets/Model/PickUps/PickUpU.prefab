@@ -39,6 +39,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5220755958002535835}
     m_Modifications:
+    - target: {fileID: 3178943405549493200, guid: 3045621533c56fa48bcc33b6de763ad6,
+        type: 3}
+      propertyPath: letra
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6052163752549409922, guid: 3045621533c56fa48bcc33b6de763ad6,
         type: 3}
       propertyPath: m_Name
