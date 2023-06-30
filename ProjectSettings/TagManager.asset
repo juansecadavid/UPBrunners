@@ -14,6 +14,7 @@ TagManager:
   - Chair
   - Table
   - Power
+  - Tree
   layers:
   - Default
   - TransparentFX
