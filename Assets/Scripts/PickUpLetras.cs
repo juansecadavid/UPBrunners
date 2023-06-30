@@ -14,4 +14,8 @@ public class PickUpLetras : MonoBehaviour
             Destroy(gameObject);           
         }     
     }
+    private void OnDestroy()
+    {
+        GameManager.ActiveLetter1.RemoveAt(0);
+    }
 }

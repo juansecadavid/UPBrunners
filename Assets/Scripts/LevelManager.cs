@@ -17,10 +17,22 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI finalScore;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        if (GameManager.ActiveLetter1.Count < 0)
+        {
+            GameManager.ActiveLetter1.RemoveAt(0);
+            GameManager.Letras=0;
+        }
+    }
     void Start()
     {
         skinSelector = FindObjectOfType<SkinSelector>();
         animator = skinSelector.Skins[GameManager.Skin].GetComponent<Animator>();
+        if(GameManager.ActiveLetter1.Count<0)
+        {
+            GameManager.ActiveLetter1.RemoveAt(0);
+        }
     }
 
     // Update is called once per frame
