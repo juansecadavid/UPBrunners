@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     private List<GameObject> activeTiles = new List<GameObject>();
+    private List<GameObject> respawner = new List<GameObject>();
     public GameObject[] tilePrefabs;
 
     public float tileLength = 50;
@@ -36,13 +37,36 @@ public class TileManager : MonoBehaviour
 
     public void SpawnTile(int tileIndex)
     {
-        GameObject tile = Instantiate(tilePrefabs[tileIndex], -transform.right * zSpawn, tilePrefabs[tileIndex].transform.rotation);
+        int indexToUse = SpawnerVerficator(tileIndex);
+        GameObject tile = Instantiate(tilePrefabs[indexToUse], -transform.right * zSpawn, tilePrefabs[indexToUse].transform.rotation);
         activeTiles.Add(tile);
         zSpawn += tileLength;
+    }
+    public int SpawnerVerficator(int tileIndex)
+    {
+        if (tilePrefabs[tileIndex].CompareTag("Spawner")&&respawner.Count==0)
+        {
+            respawner.Add(tilePrefabs[tileIndex]);
+            return tileIndex;
+        }
+        else if(tilePrefabs[tileIndex].CompareTag("Spawner")&&respawner.Count==1)
+        {
+            int newIndex= Random.Range(0, tilePrefabs.Length);
+            int definitiveIndex=SpawnerVerficator(newIndex);
+            return definitiveIndex;
+        }
+        return tileIndex;
     }
 
     private void DeleteTile()
     {
+        if (activeTiles[0].CompareTag("Spawner"))
+        {
+            if (respawner.Count > 0)
+            {
+                respawner.RemoveAt(0);
+            }           
+        }
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
     }

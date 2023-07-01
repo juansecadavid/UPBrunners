@@ -15,6 +15,7 @@ TagManager:
   - Table
   - Power
   - Tree
+  - Spawner
   layers:
   - Default
   - TransparentFX
