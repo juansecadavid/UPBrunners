@@ -19,6 +19,8 @@ public class CrashRolling : MonoBehaviour
         if (mov.Rolling == false)
         {
             mov.HasLost();
+            mov.Rolling = false;
+            mov.Saltando = false;
             mov.enabled = false;
             score.enabled = false;
             upd.enabled = false;

@@ -22,14 +22,15 @@ public class LevelManager : MonoBehaviour
         if (GameManager.ActiveLetter1.Count < 0)
         {
             GameManager.ActiveLetter1.RemoveAt(0);
-            GameManager.Letras=0;
         }
+        GameManager.Letras = 0;
     }
     void Start()
     {
         skinSelector = FindObjectOfType<SkinSelector>();
         animator = skinSelector.Skins[GameManager.Skin].GetComponent<Animator>();
-        if(GameManager.ActiveLetter1.Count<0)
+        GameManager.Letras = 0;
+        if (GameManager.ActiveLetter1.Count<0)
         {
             GameManager.ActiveLetter1.RemoveAt(0);
         }

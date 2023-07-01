@@ -16,6 +16,10 @@ public class PickUpLetras : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GameManager.ActiveLetter1.RemoveAt(0);
+        if(GameManager.ActiveLetter1.Count > 0)
+        {
+            GameManager.ActiveLetter1.RemoveAt(0);
+        }
+        
     }
 }
