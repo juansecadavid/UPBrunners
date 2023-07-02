@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PauseSystem : MonoBehaviour
 {
@@ -12,10 +13,21 @@ public class PauseSystem : MonoBehaviour
     private Movement mov;
     [SerializeField]
     private UpdateSpped updtSpeed;
+    [SerializeField]
+    private TextMeshProUGUI pauseTimer;
+    [SerializeField]
+    private GameObject player;
+    private SkinSelector skinSelector;
+    private Animator animator;
+    private Score score;
+    private VolumeSlider volume;
     // Start is called before the first frame update
     void Start()
     {
-        
+        skinSelector = FindObjectOfType<SkinSelector>();
+        animator = skinSelector.Skins[GameManager.Skin].GetComponent<Animator>();
+        score=FindObjectOfType<Score>();
+        volume = FindObjectOfType<VolumeSlider>();
     }
 
     // Update is called once per frame
@@ -27,17 +39,9 @@ public class PauseSystem : MonoBehaviour
     {
         if (isPaused)
         {
-            isPaused = false;
-            if(mov!=null)
-            {
-                mov.enabled = true;
-            }
-            if(updtSpeed!=null)
-            {
-                updtSpeed.enabled = true;
-            }
             panelPause.SetActive(false);
             Time.timeScale = 1;
+            StartCoroutine(StartAfterPause());
         } 
         else
         {
@@ -50,14 +54,15 @@ public class PauseSystem : MonoBehaviour
             {
                 updtSpeed.enabled = false;
             }
+            animator.enabled = false;
+            score.enabled = false;
             panelPause.SetActive(true);
             Time.timeScale = 0;
         }       
     }
     public void RestartLevel()
     {
-        Scene active = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(active.buildIndex);
+        SceneManager.LoadScene("LoadingScene1");
         Time.timeScale = 1;
     }
     public void BackToMenu()
@@ -65,5 +70,28 @@ public class PauseSystem : MonoBehaviour
         SceneManager.LoadScene("Inicio");
         Time.timeScale=1;   
     }
-
+    IEnumerator StartAfterPause()
+    {
+        pauseTimer.text = "0";
+        yield return new WaitForSeconds(1f);
+        pauseTimer.text = "1";
+        yield return new WaitForSeconds(1f);
+        pauseTimer.text = "2";
+        yield return new WaitForSeconds(1f);
+        pauseTimer.text = "3";
+        yield return new WaitForSeconds(1f);
+        pauseTimer.text = "";
+        animator.enabled = true;
+        score.enabled = true;
+        isPaused = false;
+        if (mov != null)
+        {
+            mov.enabled = true;
+        }
+        if (updtSpeed != null)
+        {
+            updtSpeed.enabled = true;
+        }
+        volume.PlayMusic();
+    }
 }

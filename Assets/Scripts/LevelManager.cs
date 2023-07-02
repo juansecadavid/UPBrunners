@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Video;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject panelFirstLose;
+    [SerializeField]
+    private GameObject panelFirstLose2;
     [SerializeField]
     private GameObject panelDefLose;
     private SkinSelector skinSelector;
@@ -16,6 +19,19 @@ public class LevelManager : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private TextMeshProUGUI finalScore;
+    private bool hasEnoughCoins=false;
+    [SerializeField]
+    private int valueToRespawn;
+    [SerializeField]
+    private VideoPlayer videoPlayer;
+    [SerializeField]
+    private VideoClip[] videoClips;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private GameObject blackPanel;
+    [SerializeField]
+    private TextMeshProUGUI pauseTimer;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -35,19 +51,22 @@ public class LevelManager : MonoBehaviour
             GameManager.ActiveLetter1.RemoveAt(0);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Lose()
     {
         if(losses==0)
-        {
-            panelFirstLose.SetActive(true);
-            animator.enabled = false;
-            losses++;
+        {      
+            if(CheckConditionsToRespawn())
+            {
+                panelFirstLose.SetActive(true);
+                animator.enabled = false;
+                losses++;
+            }
+            else
+            {
+                panelFirstLose2.SetActive(true);
+                animator.enabled = false;
+                losses++;
+            }           
         }
         else
         {
@@ -59,15 +78,73 @@ public class LevelManager : MonoBehaviour
     }
     public void Respawn()
     {
+        if (panelFirstLose.activeInHierarchy)
+        {
+            panelFirstLose.SetActive(false);
+        }
+        else
+        {
+            panelFirstLose2.SetActive(false);
+        }
+        StartCoroutine(RespawnTimer());       
+    }
+    public bool CheckConditionsToRespawn()
+    {
+        PowerCoins coins=player.GetComponent<PowerCoins>(); 
+        if(coins.Coins>=valueToRespawn)
+        {
+            hasEnoughCoins = true;
+            return true;
+        }
+        else
+            return false;
+    }
+    public void ShowVideo()
+    {
+        blackPanel.SetActive(true);
+        int clip = Random.Range(0,videoClips.Length);
+        videoPlayer.clip = videoClips[clip];
+        audioSource.volume = GameManager.Volume;
+        videoPlayer.Play();
+        StartCoroutine(StopPlaying());
+        
+    }
+    IEnumerator StopPlaying()
+    {
+        yield return new WaitForSeconds((float)videoPlayer.clip.length);
+        videoPlayer.Stop();
+        blackPanel.SetActive(false);
+        Respawn();
+    }
+    IEnumerator RespawnTimer()
+    {
+        pauseTimer.text = "0";
+        yield return new WaitForSeconds(1f);
+        pauseTimer.text = "1";
+        yield return new WaitForSeconds(1f);
+        pauseTimer.text="2";
+        yield return new WaitForSeconds(1f);
+        pauseTimer.text="3";
+        yield return new WaitForSeconds(1f);
+        pauseTimer.text = "";
         player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 5);
-        Movement mov=player.GetComponent<Movement>();
+        Movement mov = player.GetComponent<Movement>();
         UpdateSpped upd = player.GetComponent<UpdateSpped>();
         Score score = player.GetComponent<Score>();
+        PowerCoins coins = player.GetComponent<PowerCoins>();
+        if (hasEnoughCoins)
+        {
+            coins.Coins -= valueToRespawn;
+        }
+        else
+            coins.Coins = 0;
         mov.HasRespawn();
         mov.enabled = true;
         upd.enabled = true;
         score.enabled = true;
         animator.enabled = true;
-        panelFirstLose.SetActive(false);
+
+        VolumeSlider volume = FindObjectOfType<VolumeSlider>();
+        volume.PlayMusic();
     }
 }

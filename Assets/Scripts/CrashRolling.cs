@@ -23,8 +23,10 @@ public class CrashRolling : MonoBehaviour
             mov.Saltando = false;
             mov.enabled = false;
             score.enabled = false;
-            upd.enabled = false;
+            upd.enabled = false;         
             yield return new WaitForSeconds(1.5f);
+            VolumeSlider volume = FindObjectOfType<VolumeSlider>();
+            volume.StopMusic();
             if (score.CurrentNumber >= GameManager.HighScore)
             {
                 GameManager.HighScore = score.CurrentNumber;
