@@ -205,7 +205,6 @@ GameObject:
   - component: {fileID: 6046114015387829378}
   - component: {fileID: 3993259459542600059}
   - component: {fileID: 3287371846669320611}
-  - component: {fileID: 2094189368761566826}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -278,19 +277,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2094189368761566826
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415934548975209729}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5808248007201949060
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +288,6 @@ GameObject:
   - component: {fileID: 3617397781163111203}
   - component: {fileID: 3875051723968927898}
   - component: {fileID: 4274819115290415988}
-  - component: {fileID: 2284421367992042565}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -375,19 +360,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2284421367992042565
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5808248007201949060}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6643631505172537868
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +412,6 @@ GameObject:
   - component: {fileID: 6643631506971774166}
   - component: {fileID: 6643631506971774165}
   - component: {fileID: 6643631506971774164}
-  - component: {fileID: 6643631506971774167}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -513,19 +484,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6643631506971774167
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6643631506971774169}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6818791892297366346
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +495,6 @@ GameObject:
   - component: {fileID: 4154794613416061100}
   - component: {fileID: 4616203507657377538}
   - component: {fileID: 1431621743250093372}
-  - component: {fileID: 3715710474809288474}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -610,19 +567,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3715710474809288474
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6818791892297366346}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8943815874422555231
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +578,6 @@ GameObject:
   - component: {fileID: 6775847114657920304}
   - component: {fileID: 799111609666789057}
   - component: {fileID: 8480206370906207923}
-  - component: {fileID: 1469396950830476966}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -707,19 +650,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1469396950830476966
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8943815874422555231}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1842006937720330966
 PrefabInstance:
   m_ObjectHideFlags: 0
