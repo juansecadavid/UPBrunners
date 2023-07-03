@@ -9,6 +9,7 @@ public class Play : MonoBehaviour
 {
     [SerializeField]
     private GameObject panelConfig;
+    public float panelConfigPs;
     [SerializeField]
     private GameObject panelGeneral;
     [SerializeField]
@@ -21,6 +22,9 @@ public class Play : MonoBehaviour
     private void Start()
     {
         schoolDrop.value = GameManager.School;
+        panelConfigPs = panelConfig.GetComponent<RectTransform>().position.y;
+        LeanTween.moveY(panelGeneral.GetComponent<RectTransform>(), 0, 2f).setDelay(0.2f)
+            .setEase(LeanTweenType.easeOutElastic);
     }
     public void StartGame()
     {
@@ -32,15 +36,17 @@ public class Play : MonoBehaviour
     }
     public void ConfigPanel()
     {
-        if(configPanel)
+        if (configPanel)
         {
-            panelConfig.SetActive(false);
-            configPanel = false;
+            LeanTween.alpha(panelConfig.GetComponent<RectTransform>(), 0f, 0.2f);
+            LeanTween.moveY(panelConfig.GetComponent<RectTransform>(), -panelConfigPs, 0.2f).setOnComplete(DesactivatePanel);               
         }
         else
         {
             panelConfig.SetActive(true);
-            configPanel=true;
+            configPanel = true;
+            LeanTween.alpha(panelConfig.GetComponent<RectTransform>(), 1f, 0.2f);
+            LeanTween.moveY(panelConfig.GetComponent<RectTransform>(), -733, 0.2f);
         }
     }
     public void SkinPanel()
@@ -51,6 +57,9 @@ public class Play : MonoBehaviour
             panelSkin.SetActive(false);
             panelGeneral.SetActive(true);
             configSkin = false;
+            LeanTween.moveY(panelGeneral.GetComponent<RectTransform>(), 500, 0f);
+            LeanTween.moveY(panelGeneral.GetComponent<RectTransform>(), 0, 2f).setDelay(0.2f)
+            .setEase(LeanTweenType.easeOutElastic);
         }
         else
         {
@@ -63,5 +72,10 @@ public class Play : MonoBehaviour
     {
         GameManager.School = schoolDrop.value;
         SaveSystem.SaveSchool();
+    }
+    public void DesactivatePanel()
+    {
+        panelConfig.SetActive(false);
+        configPanel = false;
     }
 }
