@@ -16,6 +16,7 @@ TagManager:
   - Power
   - Tree
   - Spawner
+  - Shield
   layers:
   - Default
   - TransparentFX

@@ -5,12 +5,18 @@ using UnityEngine;
 public class ScoreBoost : MonoBehaviour
 {
     Score score;
+    [SerializeField]
+    private int boost;
     private void Start()
     {
         score=FindObjectOfType<Score>();
     }
     private void OnTriggerEnter(Collider other)
     {
-        score.CurrentNumber += 1000;
+        score.CurrentNumber += boost;
+    }
+    public void Boost()
+    {
+        score.CurrentNumber += boost;
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PicUpExperience : MonoBehaviour
 {
+    private SoundManager soundManager;
     // Start is called before the first frame update
     private void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         StartCoroutine(Animate());
     }
     private void OnTriggerEnter(Collider other)
@@ -15,6 +17,7 @@ public class PicUpExperience : MonoBehaviour
         {
             PowerCoins coins = other.GetComponentInParent<PowerCoins>();
             coins.Coins ++;
+            soundManager.PlaySound(0);
             Destroy(gameObject);
         }
     }

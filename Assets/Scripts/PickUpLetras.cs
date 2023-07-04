@@ -6,8 +6,12 @@ public class PickUpLetras : MonoBehaviour
 {
     [SerializeField]
     private int letra;
+    private SoundManager soundManager;
+    private Transform parent;
     private void Start()
     {
+        parent=GetComponentInParent<Transform>();
+        soundManager = FindObjectOfType<SoundManager>();
         StartCoroutine(Animation());
         StartCoroutine(Animation2());
     }
@@ -16,16 +20,13 @@ public class PickUpLetras : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             GameManager.Letras = letra;
-            Destroy(gameObject);           
+            soundManager.PlaySound(1);
+            if (GameManager.ActiveLetter1.Count > 0)
+            {
+                GameManager.ActiveLetter1.RemoveAt(0);
+            }
+            Destroy(parent.gameObject);           
         }     
-    }
-    private void OnDestroy()
-    {
-        if(GameManager.ActiveLetter1.Count > 0)
-        {
-            GameManager.ActiveLetter1.RemoveAt(0);
-        }
-        
     }
     IEnumerator Animation()
     {

@@ -17,6 +17,8 @@ public class PauseSystem : MonoBehaviour
     private TextMeshProUGUI pauseTimer;
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private GameObject canvasPowerBon;
     private SkinSelector skinSelector;
     private Animator animator;
     private Score score;
@@ -57,6 +59,7 @@ public class PauseSystem : MonoBehaviour
             animator.enabled = false;
             score.enabled = false;
             panelPause.SetActive(true);
+            canvasPowerBon.SetActive(false);
             Time.timeScale = 0;
         }       
     }
@@ -81,6 +84,10 @@ public class PauseSystem : MonoBehaviour
         pauseTimer.text = "3";
         yield return new WaitForSeconds(1f);
         pauseTimer.text = "";
+        if(!canvasPowerBon.activeInHierarchy)
+        {
+            canvasPowerBon.SetActive(true);
+        }
         animator.enabled = true;
         score.enabled = true;
         isPaused = false;

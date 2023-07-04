@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Crashing : MonoBehaviour
 {
+    SoundManager soundManager;
+    private void Start()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            soundManager.PlaySound(2);
             StartCoroutine(Lose(other));
         }
     }

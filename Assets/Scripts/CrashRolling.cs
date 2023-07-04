@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CrashRolling : MonoBehaviour
 {
+    SoundManager soundManager;
+    private void Start()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -18,6 +23,7 @@ public class CrashRolling : MonoBehaviour
         Score score = other.GetComponentInParent<Score>();
         if (mov.Rolling == false)
         {
+            soundManager.PlaySound(2);
             mov.HasLost();
             mov.Rolling = false;
             mov.Saltando = false;
