@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour
     private GameObject blackPanel;
     [SerializeField]
     private TextMeshProUGUI pauseTimer;
+    private SoundManager SoundManager;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {
+        SoundManager = FindObjectOfType<SoundManager>();
         skinSelector = FindObjectOfType<SkinSelector>();
         animator = skinSelector.Skins[GameManager.Skin].GetComponent<Animator>();
         GameManager.Letras = 0;
@@ -118,13 +120,14 @@ public class LevelManager : MonoBehaviour
     }
     IEnumerator RespawnTimer()
     {
-        pauseTimer.text = "0";
-        yield return new WaitForSeconds(1f);
-        pauseTimer.text = "1";
+        pauseTimer.text = "";
+        yield return new WaitForSeconds(0.2f);
+        SoundManager.PlaySound(6);
+        pauseTimer.text = "3";
         yield return new WaitForSeconds(1f);
         pauseTimer.text="2";
         yield return new WaitForSeconds(1f);
-        pauseTimer.text="3";
+        pauseTimer.text="1";
         yield return new WaitForSeconds(1f);
         pauseTimer.text = "";
         player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 5);

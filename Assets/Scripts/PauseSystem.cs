@@ -23,6 +23,7 @@ public class PauseSystem : MonoBehaviour
     private Animator animator;
     private Score score;
     private VolumeSlider volume;
+    private SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class PauseSystem : MonoBehaviour
         animator = skinSelector.Skins[GameManager.Skin].GetComponent<Animator>();
         score=FindObjectOfType<Score>();
         volume = FindObjectOfType<VolumeSlider>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -42,12 +44,13 @@ public class PauseSystem : MonoBehaviour
         if (isPaused)
         {
             panelPause.SetActive(false);
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
             StartCoroutine(StartAfterPause());
         } 
         else
         {
             isPaused = true;
+            GameManager.IsPaused = true;
             if (mov != null)
             {
                 mov.enabled = false;
@@ -60,7 +63,8 @@ public class PauseSystem : MonoBehaviour
             score.enabled = false;
             panelPause.SetActive(true);
             canvasPowerBon.SetActive(false);
-            Time.timeScale = 0;
+
+            //Time.timeScale = 0;
         }       
     }
     public void RestartLevel()
@@ -75,15 +79,17 @@ public class PauseSystem : MonoBehaviour
     }
     IEnumerator StartAfterPause()
     {
-        pauseTimer.text = "0";
-        yield return new WaitForSeconds(1f);
-        pauseTimer.text = "1";
+        pauseTimer.text = "";
+        yield return new WaitForSeconds(0.2f);
+        soundManager.PlaySound(6);
+        pauseTimer.text = "3";
         yield return new WaitForSeconds(1f);
         pauseTimer.text = "2";
         yield return new WaitForSeconds(1f);
-        pauseTimer.text = "3";
+        pauseTimer.text = "1";
         yield return new WaitForSeconds(1f);
         pauseTimer.text = "";
+        GameManager.IsPaused = false;
         if(!canvasPowerBon.activeInHierarchy)
         {
             canvasPowerBon.SetActive(true);
