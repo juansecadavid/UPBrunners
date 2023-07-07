@@ -11,6 +11,7 @@ public static class GameManager
     private static int school=0;
     private static int letras = 0;
     private static bool isPaused=false;
+    private static bool hasLost=false;
 
     private static List<GameObject> ActiveLetter=new List<GameObject>();
 
@@ -22,4 +23,5 @@ public static class GameManager
     public static int Letras { get => letras; set => letras = value; }
     public static List<GameObject> ActiveLetter1 { get => ActiveLetter; set => ActiveLetter = value; }
     public static bool IsPaused { get => isPaused; set => isPaused = value; }
+    public static bool HasLost { get => hasLost; set => hasLost = value; }
 }
