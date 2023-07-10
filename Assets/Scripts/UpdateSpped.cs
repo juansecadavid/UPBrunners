@@ -19,9 +19,19 @@ public class UpdateSpped : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameTime+=Time.deltaTime;
-        float currentSpeed = Mathf.Lerp(movement.velocidadMovimiento,maxSpeed,gameTime/maxTime);
-        movement.velocidadMovimiento = currentSpeed;
+        if(movement.velocidadMovimiento<=50f)
+        {
+            gameTime += Time.deltaTime;
+            if (gameTime >= (1 / 2f))
+            {
+                movement.velocidadMovimiento += 0.1f;
+                movement.velocidadMovimientoLateral += 0.025f;
+                gameTime = 0f;
+            }
+        }
+        
+        /*float currentSpeed = Mathf.Lerp(movement.velocidadMovimiento,maxSpeed,gameTime/maxTime);
+        movement.velocidadMovimiento = currentSpeed;*/
         
     }
 }

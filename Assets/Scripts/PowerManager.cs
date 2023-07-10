@@ -15,9 +15,9 @@ public class PowerManager : MonoBehaviour
     [SerializeField]
     private Button bonPrefab;
     List<GameObject> bonButtons = new List<GameObject>();
-    private bool[] isUsingPower=new bool[3];
-    private float[] timeOfPower=new float[3];
-    private float[] time=new float[3];
+    private bool[] isUsingPower=new bool[4];
+    private float[] timeOfPower=new float[4];
+    private float[] time=new float[4];
     private PowerCoins powerCoins;
     [SerializeField]
     private Slider[] powerBar;
@@ -27,6 +27,12 @@ public class PowerManager : MonoBehaviour
     private Score score;
     UpdateSpped updSpd;
     private float speed;
+    [SerializeField]
+    private TextMeshProUGUI doubleText;
+    SkinSelector skin;
+    Animator animator;
+    [SerializeField]
+    private TextMeshProUGUI freezeTimer;
     // Update is called once per frame
     private void Start()
     {
@@ -35,7 +41,8 @@ public class PowerManager : MonoBehaviour
         soundManager=FindObjectOfType<SoundManager>();
         score = FindObjectOfType<Score>();
         updSpd = FindObjectOfType<UpdateSpped>();
-        speed = movement.velocidadMovimiento;
+        skin = FindObjectOfType<SkinSelector>();
+        animator = skin.Skins[GameManager.Skin].GetComponent<Animator>();
     }
     void Update()
     {
@@ -82,11 +89,26 @@ public class PowerManager : MonoBehaviour
             if (time[2] > timeOfPower[2])
             {
                 powerBar[2].gameObject.SetActive(false);
+                doubleText.gameObject.SetActive(false);
                 isUsingPower[2] = false;
                 time[2] = 0f;
                 score.ScoreMultiplyer = 1;
                 updSpd.enabled = true;
                 movement.velocidadMovimiento = speed;
+            }
+        }
+        if(isUsingPower[3] && !GameManager.IsPaused)
+        {
+            time[3] += Time.deltaTime;
+            powerBar[3].value -= Time.deltaTime;
+            if(time[3] > timeOfPower[3])
+            {
+                powerBar[3].gameObject.SetActive(false);
+                time[3] = 0f;
+                isUsingPower[3] = false;
+                movement.enabled = true;
+                updSpd.enabled = true;
+                animator.enabled = true;
             }
         }
     }
@@ -118,6 +140,15 @@ public class PowerManager : MonoBehaviour
             StartCoroutine(DoubleScore());
         }
     }
+    public void PowerFreezeGame(int amountCoins)
+    {
+        if (!isUsingPower[3] && powerCoins.Coins >= amountCoins)
+        {
+            soundManager.PlaySound(5);
+            powerCoins.Coins = powerCoins.Coins - amountCoins;
+            StartCoroutine(FreezeGame());
+        }
+    }
     IEnumerator AutoPlay()
     {
         //principalCollider.SetActive(false);
@@ -145,7 +176,7 @@ public class PowerManager : MonoBehaviour
     {
         do
         {
-            Vector3 pos = new Vector3(Random.Range(-140, 42), Random.Range(-380, 200), 0);
+            Vector3 pos = new Vector3(Random.Range(-200, 200), Random.Range(-380, 300), 0);
             Button instance = Instantiate(bonPrefab, bonificationPoll.transform);
             RectTransform rectTransform = instance.GetComponent<RectTransform>();
             rectTransform.LeanSetLocalPosX(pos.x);
@@ -159,14 +190,37 @@ public class PowerManager : MonoBehaviour
     }
     IEnumerator DoubleScore()
     {
+        doubleText.gameObject.SetActive(true);
         timeOfPower[2] = 10;
         powerBar[2].maxValue = timeOfPower[2];
         powerBar[2].value = powerBar[2].maxValue;
         powerBar[2].gameObject.SetActive(true);
         isUsingPower[2] = true;
+        speed = movement.velocidadMovimiento;
         movement.velocidadMovimiento += 10;      
         score.ScoreMultiplyer = 2;
         updSpd.enabled = false;
+        yield return null;
+    }
+    IEnumerator FreezeGame()
+    {
+        timeOfPower[3] = 10;
+        powerBar[3].maxValue = timeOfPower[3];
+        powerBar[3].value = powerBar[3].maxValue;
+        powerBar[3].gameObject.SetActive(true);
+        isUsingPower[3] = true;
+        movement.enabled = false;
+        updSpd.enabled = false;
+        animator.enabled = false;
+        yield return new WaitForSeconds(timeOfPower[3] - 3);
+        soundManager.PlaySound(6);
+        freezeTimer.text = "3";
+        yield return new WaitForSeconds(1f);
+        freezeTimer.text = "2";
+        yield return new WaitForSeconds(1f);
+        freezeTimer.text = "1";
+        yield return new WaitForSeconds(1f);
+        freezeTimer.text = "";
         yield return null;
     }
 }

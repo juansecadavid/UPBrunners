@@ -56,15 +56,17 @@ public class LevelManager : MonoBehaviour
     public void Lose()
     {
         if(losses==0)
-        {      
-            if(CheckConditionsToRespawn())
+        {
+            if (CheckConditionsToRespawn())
             {
+                GameManager.IsPaused = true;
                 panelFirstLose.SetActive(true);
                 animator.enabled = false;
                 losses++;
             }
             else
             {
+                GameManager.IsPaused = true;
                 panelFirstLose2.SetActive(true);
                 animator.enabled = false;
                 losses++;
@@ -131,7 +133,13 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         pauseTimer.text = "";
         player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 5);
+        GameManager.IsPaused = false;
         Movement mov = player.GetComponent<Movement>();
+        if(mov.velocidadMovimiento>20)
+        {
+            mov.velocidadMovimiento -= 5;
+            mov.velocidadMovimientoLateral -= 1.25f;
+        }      
         UpdateSpped upd = player.GetComponent<UpdateSpped>();
         Score score = player.GetComponent<Score>();
         PowerCoins coins = player.GetComponent<PowerCoins>();

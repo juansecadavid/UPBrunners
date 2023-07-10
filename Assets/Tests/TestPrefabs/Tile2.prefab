@@ -931,10 +931,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1241491886003968732, guid: cf5dd3c6f44d6334c9bd7f7555dc949f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5184179352385827466, guid: cf5dd3c6f44d6334c9bd7f7555dc949f,
         type: 3}
       propertyPath: m_Name
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542388140222390671, guid: cf5dd3c6f44d6334c9bd7f7555dc949f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf5dd3c6f44d6334c9bd7f7555dc949f, type: 3}
