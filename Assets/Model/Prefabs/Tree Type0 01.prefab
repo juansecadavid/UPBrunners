@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4171612563390089782}
   m_Layer: 0
   m_Name: Tree Type0 01
-  m_TagString: Tree
+  m_TagString: Chair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6006241242378389988}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 8.861989, y: 0.6, z: -2.7674112}
-  m_LocalScale: {x: 0.37243992, y: 0.37244, z: 0.37243992}
+  m_LocalScale: {x: 0.23743044, y: 0.37244, z: 0.20615296}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,7 +96,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.74673, y: 5.2583494, z: 9.516519}
+  m_Size: {x: 8.74673, y: 5.2583494, z: 8.21}
   m_Center: {x: 0.43260488, y: 2.2375169, z: -0.24234855}
 --- !u!114 &4171612563390089782
 MonoBehaviour:

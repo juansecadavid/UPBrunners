@@ -17,6 +17,7 @@ TagManager:
   - Tree
   - Spawner
   - Shield
+  - Car
   layers:
   - Default
   - TransparentFX
