@@ -33,6 +33,7 @@ public class PowerManager : MonoBehaviour
     Animator animator;
     [SerializeField]
     private TextMeshProUGUI freezeTimer;
+    private float velocidadMovimientoLateralActual=0;
     // Update is called once per frame
     private void Start()
     {
@@ -55,6 +56,7 @@ public class PowerManager : MonoBehaviour
                 powerBar[0].gameObject.SetActive(false);
                 isUsingPower[0] = false;
                 time[0] = 0f;
+                movement.velocidadMovimientoLateral = velocidadMovimientoLateralActual;
                 automatic.gameObject.SetActive(false);
             }
         }
@@ -158,6 +160,8 @@ public class PowerManager : MonoBehaviour
         powerBar[0].value = powerBar[0].maxValue;
         powerBar[0].gameObject.SetActive(true);
         isUsingPower[0] = true;
+        velocidadMovimientoLateralActual = movement.velocidadMovimientoLateral;
+        movement.velocidadMovimientoLateral = 80;
         yield return null;
     }
     IEnumerator Bonification()

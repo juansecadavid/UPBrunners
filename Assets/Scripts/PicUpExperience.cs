@@ -25,9 +25,9 @@ public class PicUpExperience : MonoBehaviour
     {
         while (true)
         {
-            LeanTween.moveY(gameObject, 2.5f, 0.5f);
+            LeanTween.moveY(gameObject, transform.position.y+1, 0.5f);
             yield return new WaitForSeconds(0.5f);
-            LeanTween.moveY(gameObject, 1.5f, 0.5f);
+            LeanTween.moveY(gameObject, transform.position.y-1, 0.5f);
             yield return new WaitForSeconds (0.5f);
         }
     }

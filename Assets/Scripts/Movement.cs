@@ -15,9 +15,8 @@ public class Movement : MonoBehaviour
     private float destinoX;
     private bool saltando = false;
     private bool rolling=false;
-    private float tiempoSubiendo = 1f;
     private float tiempoSalto = 0f;
-    private float alturaInicial;
+    private float alturaInicial=1.5f;
     public float eso=0;
     private float rollingTime=0f;
     private float carriles = 0;
@@ -27,7 +26,6 @@ public class Movement : MonoBehaviour
     private bool isTouchingTable=false;
 
     private Animator animator;
-    private Transform child;
     bool firstTime=true;
 
     private Vector2 touchStartPosition;
@@ -44,7 +42,6 @@ public class Movement : MonoBehaviour
         try
         {
             animator = GetComponentInChildren<Animator>();
-            child=GetComponentInChildren<Transform>();
 
         }
         catch (System.Exception)
@@ -209,6 +206,7 @@ public class Movement : MonoBehaviour
                 }
             }       
         }
+        
     }
     public void MoveRight()
     {
@@ -285,12 +283,26 @@ public class Movement : MonoBehaviour
     {
         animator.SetBool("hasLost", false);
     }
-    private void OnMouseDrag()
+    public void MoveToLane(float targetLane)
     {
-        if(Input.GetMouseButtonDown(0))
+        carriles = targetLane;
+        moverDerecha = false;
+        moverIzquierda = false;
+        if (destinoX != carriles)
         {
-            Debug.Log("derecha");
+            if (carriles > destinoX)
+            {
+                animator?.SetBool("runLeft", false);
+                animator?.SetBool("runRight", true);
+            }
+            else
+            {
+                animator?.SetBool("runRight", false);
+                animator?.SetBool("runLeft", true);
+            }
+            changingTime = 0f;
+            isChanging = true;
         }
-        
+        destinoX = carriles;
     }
 }
