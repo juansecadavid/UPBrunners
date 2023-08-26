@@ -37,87 +37,109 @@ public class PlayAutomatic : MonoBehaviour
     private bool canJump = true; // Variable que controla si se permite un salto adicional
     private float initialYPosition; // Posición Y inicial del personaje
     private bool isJumping = false; // Variable que indica si el personaje está realizando un salto
-    private int maxAttempts = 3; // Máximo número de intentos para encontrar un carril libre
+    private int maxAttempts = 4; // Máximo número de intentos para encontrar un carril libre
+    [SerializeField]
+    private GameObject player;
+    public float lastPosi = 0;
+
     void Start()
     {
         mov = GetComponentInParent<Movement>();
         initialYPosition = transform.position.y;
     }
-
-     private void OnTriggerEnter(Collider other)
-     {
-         if (other.CompareTag("Chair"))
-         {
-             if (canJump) // Verificar si se permite el salto adicional
-             {
-                 if (isJumping) // Verificar si ya está en medio de un salto
-                 {/*
-                     mov.Roll(); // Realizar el gesto de rodar para cancelar el salto anterior
-                     isJumping = false;
-                     StartCoroutine(JumpAgain());
-                     StartCoroutine(ResetCanJump()); // Iniciar el retraso antes de permitir el salto adicional nuevamente
-                     */
-                     isJumping = false;
-                     StartCoroutine(ResetCanJump());
-                     if (transform.position.x <= 0f)
-                     {
-                         // Intentar moverse hacia la derecha
-                         TryMoveToFreeLane(1);
-                     }
-                     else if (transform.position.x > 0f)
-                     {
-                         // Intentar moverse hacia la izquierda
-                         TryMoveToFreeLane(-1);
-                     }
-                 }
-                 else
-                 {
-                     mov.Jump();
-                     isJumping = true;
-                     canJump = false; // Desactivar el salto adicional hasta alcanzar la posición Y inicial nuevamente
-                     StartCoroutine(ResetCanJump());
-                 }
-             }
-             else
-             {
-                 mov.Roll(); // Realizar el gesto de rodar para cancelar el salto anterior
-             }
-         }
-         else if (other.CompareTag("Table"))
-         {
-             mov.Roll();
-         }
-         else if (other.CompareTag("Tree"))
-         {
-             if (transform.position.x <= 0f)
-             {
-                 // Intentar moverse hacia la derecha
-                 TryMoveToFreeLane(1);
-             }
-             else if (transform.position.x > 0f)
-             {
-                 // Intentar moverse hacia la izquierda
-                 TryMoveToFreeLane(-1);
-             }
-         }
-        else if (other.CompareTag("Car"))
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Chair"))
         {
-            // Evitar colisionar con el objeto "car"
-            if (transform.position.x <= 0f)
+            if (canJump) // Verificar si se permite el salto adicional
             {
-                TryMoveToFreeLane(1);
+                if (isJumping) // Verificar si ya está en medio de un salto
+                {/*
+                    mov.Roll(); // Realizar el gesto de rodar para cancelar el salto anterior
+                    isJumping = false;
+                    StartCoroutine(JumpAgain());
+                    StartCoroutine(ResetCanJump()); // Iniciar el retraso antes de permitir el salto adicional nuevamente
+                    */
+                    isJumping = false;
+                    StartCoroutine(ResetCanJump());
+                    if (player.transform.position.x == 0f)
+                    {
+                        // Intentar moverse hacia la derecha
+                        //TryMoveToFreeLane(2.5f);
+                        if (lastPosi > 0)
+                        {
+                            mov.MoveLeft();
+                        }
+                        else
+                        {
+                            mov.MoveRight();
+                        }
+
+                    }
+                    else if (player.transform.position.x < 0f)
+                    {
+                        mov.MoveRight();
+                        lastPosi = -2.5f;
+                        // Intentar moverse hacia la izquierda
+                        //TryMoveToFreeLane(-2.5f);
+                    }
+                    else if(player.transform.position.x > 0f)
+                    {
+                        mov.MoveLeft();
+                        lastPosi = 2.5f;
+                    }
+                }
+                else
+                {
+                    mov.Jump();
+                    isJumping = true;
+                    canJump = false; // Desactivar el salto adicional hasta alcanzar la posición Y inicial nuevamente
+                    StartCoroutine(ResetCanJump());
+                }
             }
-            else if (transform.position.x > 0f)
+            else
             {
-                TryMoveToFreeLane(-1);
+                mov.Roll(); // Realizar el gesto de rodar para cancelar el salto anterior
+            }
+        }
+        else if (other.CompareTag("Table"))
+        {
+            mov.Roll();
+        }
+        else if (other.CompareTag("Tree"))
+        {
+            if (player.transform.position.x == 0f)
+            {
+                if(lastPosi>0)
+                {
+                    mov.MoveLeft();
+                }
+                else
+                {
+                    mov.MoveRight();
+                }
+                // Intentar moverse hacia la derecha
+                //TryMoveToFreeLane(2.5f);
+            }
+            else if (player.transform.position.x < 0f)
+            {
+                mov.MoveRight();
+                lastPosi = -2.5f;
+                // Intentar moverse hacia la izquierda
+                //TryMoveToFreeLane(-2.5f);
+            }
+            else if(player.transform.position.x>0f)
+            {
+                mov.MoveLeft();
+                lastPosi = 2.5f;
             }
         }
     }
 
-    private void TryMoveToFreeLane(int direction)
+    private void TryMoveToFreeLane(float direction)
     {
-        int currentLane = Mathf.RoundToInt(transform.position.x);
-        int targetLane = currentLane + direction;
+        float currentLane = player.transform.position.x;   
+        float targetLane = currentLane + direction;
         int attempts = 0;
 
         // Intentar encontrar un carril libre
@@ -133,25 +155,24 @@ public class PlayAutomatic : MonoBehaviour
             if (direction > 0)
             {
                 mov.MoveRight();
+                lastPosi = player.transform.position.x;
             }
             else
             {
                 mov.MoveLeft();
+                lastPosi = player.transform.position.x;
             }
         }
     }
 
-    private bool IsLaneFree(int lane)
+    private bool IsLaneFree(float lane)
     {
+        Vector3 nuevoVect = new Vector3(lane,player.transform.position.y,player.transform.position.z);
         // Verificar si el carril está libre de objetos "Tree"
-        Collider[] colliders = Physics.OverlapSphere(new Vector3(lane, transform.position.y, transform.position.z), 0.5f);
+        Collider[] colliders = Physics.OverlapBox(nuevoVect,new Vector3(7.7f,2.6f,1));
         foreach (Collider collider in colliders)
         {
             if (collider.CompareTag("Tree"))
-            {
-                return false;
-            }
-            if (collider.CompareTag("Car"))
             {
                 return false;
             }

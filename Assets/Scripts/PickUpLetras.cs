@@ -8,12 +8,20 @@ public class PickUpLetras : MonoBehaviour
     private int letra;
     private SoundManager soundManager;
     private Transform parent;
-    private void Start()
+    public LetterSpawner letterParent;
+    Vector3 initialY;
+    private void Awake()
     {
-        parent=GetComponentInParent<Transform>();
+        parent = GetComponentInParent<Transform>();
         soundManager = FindObjectOfType<SoundManager>();
+        letterParent=GetComponentInParent<LetterSpawner>();
+        initialY=transform.position;
+    }
+    private void Start()
+    {   
+        /*
         StartCoroutine(Animation());
-        StartCoroutine(Animation2());
+        StartCoroutine(Animation2());*/
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -25,7 +33,17 @@ public class PickUpLetras : MonoBehaviour
             {
                 GameManager.ActiveLetter1.RemoveAt(0);
             }
-            Destroy(parent.gameObject);           
+            //letterParent.SpawnLetter(letra);
+            if(letra == 0)
+            {
+                letterParent.Instantiatedletters[2].gameObject.SetActive(false);
+            }
+            else
+            {
+                letterParent.Instantiatedletters[letra-1].gameObject.SetActive(false);
+            }
+            
+            
         }     
     }
     IEnumerator Animation()
@@ -49,5 +67,13 @@ public class PickUpLetras : MonoBehaviour
             LeanTween.rotateAround(gameObject, new Vector3(360, 0, 0), -360, 1f);
             yield return new WaitForSeconds(3f);
         }
+    }
+    private void OnEnable()
+    {
+        Vector3 pos = transform.position;
+        pos.y = initialY.y;
+        transform.position = pos;
+        StartCoroutine(Animation());
+        StartCoroutine(Animation2());
     }
 }

@@ -52,18 +52,7 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        // Verificar si se debe mover lateralmente
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            MoveRight();
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            MoveLeft();
-            
-        }
-
+        
         // Verificar deslizamiento táctil
         if (Input.touchCount > 0&& Input.GetTouch(0).phase==TouchPhase.Began)
         {
@@ -79,22 +68,34 @@ public class Movement : MonoBehaviour
             {
                 if(touchEndedPosition.y<touchStartPosition.y)
                 {
-                    Roll();
+                    if(!GameManager.IsAutoPlaying)
+                    {
+                        Roll();
+                    }              
                 }
                 else
                 {
-                   Jump();
+                    if(!GameManager.IsAutoPlaying)
+                    {
+                        Jump();
+                    }              
                 }
             } 
             else
             {
                 if (touchEndedPosition.x < touchStartPosition.x)
                 {
-                    MoveLeft();
+                    if(!GameManager.IsAutoPlaying)
+                    {
+                        MoveLeft();
+                    }        
                 }
                 if (touchEndedPosition.x > touchStartPosition.x)
                 {
-                    MoveRight();
+                    if(!GameManager.IsAutoPlaying)
+                    {
+                        MoveRight();
+                    }
                 }
             }         
         }
@@ -122,12 +123,23 @@ public class Movement : MonoBehaviour
                 animator?.SetBool("runLeft",false);
             }
         }
+        // Verificar si se debe mover lateralmente
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            MoveRight();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MoveLeft();
+
+        }
         // Verificar salto
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Jump();
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             Roll();
         }
@@ -205,8 +217,7 @@ public class Movement : MonoBehaviour
                     
                 }
             }       
-        }
-        
+        }     
     }
     public void MoveRight()
     {

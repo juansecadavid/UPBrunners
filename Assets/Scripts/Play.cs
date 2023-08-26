@@ -14,10 +14,13 @@ public class Play : MonoBehaviour
     private GameObject panelGeneral;
     [SerializeField]
     private GameObject panelSkin;
+    [SerializeField]
+    private GameObject panelCredits;
     private bool configPanel=false;
     private bool configSkin=false;
     [SerializeField]
     private TMP_Dropdown schoolDrop;
+    private bool startGame=false;
     // Start is called before the first frame update
     private void Start()
     {
@@ -25,10 +28,12 @@ public class Play : MonoBehaviour
         panelConfigPs = panelConfig.GetComponent<RectTransform>().position.y;
         LeanTween.moveY(panelGeneral.GetComponent<RectTransform>(), 0, 2f).setDelay(0.2f)
             .setEase(LeanTweenType.easeOutElastic);
+        StartCoroutine(PreCharge());
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("LoadingScene1");
+        //SceneManager.LoadScene("LoadingScene1");
+        startGame = true;
     }
     public void Prueba()
     {
@@ -39,14 +44,14 @@ public class Play : MonoBehaviour
         if (configPanel)
         {
             LeanTween.alpha(panelConfig.GetComponent<RectTransform>(), 0f, 0.2f);
-            LeanTween.moveY(panelConfig.GetComponent<RectTransform>(), -panelConfigPs, 0.2f).setOnComplete(DesactivatePanel);               
+            LeanTween.moveY(panelConfig.GetComponent<RectTransform>(), -715, 0.2f).setOnComplete(DesactivatePanel);               
         }
         else
         {
             panelConfig.SetActive(true);
             configPanel = true;
-            LeanTween.alpha(panelConfig.GetComponent<RectTransform>(), 1f, 0.2f);
-            LeanTween.moveY(panelConfig.GetComponent<RectTransform>(), -733, 0.2f);
+            LeanTween.alpha(panelConfig.GetComponent<RectTransform>(), 1, 0.2f);
+            LeanTween.moveY(panelConfig.GetComponent<RectTransform>(), 37, 0.2f);
         }
     }
     public void SkinPanel()
@@ -77,5 +82,40 @@ public class Play : MonoBehaviour
     {
         panelConfig.SetActive(false);
         configPanel = false;
+    }
+    public void PanelCredits()
+    {
+        if (panelCredits.activeInHierarchy)
+        {
+
+            LeanTween.moveY(panelCredits.GetComponent<RectTransform>(), 900, 0.2f).setOnComplete(DesactivateCredits);
+            LeanTween.alpha(panelCredits.GetComponent<RectTransform>(), 0, 0.2f);
+        }
+        else
+        {
+            panelCredits.SetActive(true);
+            LeanTween.moveY(panelCredits.GetComponent<RectTransform>(), 0, 0.2f);
+            LeanTween.alpha(panelCredits.GetComponent<RectTransform>(), 1, 0.2f);
+        }
+    }
+    private void DesactivateCredits()
+    {
+        panelCredits.SetActive(false);
+    }
+    IEnumerator PreCharge()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync("LoadingScene1");
+        operation.allowSceneActivation = false;
+        while (!operation.isDone)
+        {
+            if (operation.progress >= 0.9f)
+            {        
+                if (startGame)
+                {
+                    operation.allowSceneActivation = true;
+                }
+            }
+            yield return null;
+        }
     }
 }

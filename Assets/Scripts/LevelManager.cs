@@ -158,4 +158,15 @@ public class LevelManager : MonoBehaviour
         VolumeSlider volume = FindObjectOfType<VolumeSlider>();
         volume.PlayMusic();
     }
+    public void HideAndShow(GameObject toHide)
+    {
+        StartCoroutine(hideAndShow(toHide));
+    }
+    IEnumerator hideAndShow(GameObject toHide)
+    {
+        toHide.SetActive(false);
+        yield return new WaitForSeconds(1);
+        toHide.SetActive(true);
+        yield return null;
+    }
 }

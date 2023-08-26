@@ -5,11 +5,15 @@ using UnityEngine;
 public class PicUpExperience : MonoBehaviour
 {
     private SoundManager soundManager;
+    private LevelManager levelManager;
+    private Vector3 initialPos;
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         soundManager = FindObjectOfType<SoundManager>();
-        StartCoroutine(Animate());
+        levelManager = FindObjectOfType<LevelManager>();
+        //StartCoroutine(Animate());
+        initialPos=transform.position;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -18,12 +22,12 @@ public class PicUpExperience : MonoBehaviour
             PowerCoins coins = other.GetComponentInParent<PowerCoins>();
             coins.Coins ++;
             soundManager.PlaySound(0);
-            Destroy(gameObject);
+            levelManager.HideAndShow(gameObject);
         }
     }
     IEnumerator Animate()
     {
-        while (true)
+        while (gameObject.activeInHierarchy)
         {
             LeanTween.moveY(gameObject, transform.position.y+1, 0.5f);
             yield return new WaitForSeconds(0.5f);
@@ -31,4 +35,12 @@ public class PicUpExperience : MonoBehaviour
             yield return new WaitForSeconds (0.5f);
         }
     }
+    private void OnEnable()
+    {
+        Vector3 pos= transform.position;
+        pos.y=initialPos.y;
+        transform.position = pos;
+        StartCoroutine(Animate());
+    }
+
 }
