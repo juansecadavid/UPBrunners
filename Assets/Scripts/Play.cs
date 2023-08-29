@@ -118,4 +118,8 @@ public class Play : MonoBehaviour
             yield return null;
         }
     }
+    public void OpenUPBpage()
+    {
+        Application.OpenURL("https://www.upb.edu.co/es/home");
+    }
 }
