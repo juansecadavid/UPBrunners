@@ -14,12 +14,18 @@ public class LoadingWindow : MonoBehaviour
     private VideoClip[] videoClips;
     [SerializeField]
     private Slider slider;
+    bool startGame=false;
+    [SerializeField]
+    GameObject StartGameBtn;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         player = GetComponent<VideoPlayer>();
         player.clip = videoClips[Random.Range(0, videoClips.Length)];
         Debug.Log($"{videoClips.Length}");
+    }
+    void Start()
+    {
         player.Play();
         slider.maxValue = (float)player.clip.length;
         StartCoroutine(StartCharge());
@@ -28,7 +34,8 @@ public class LoadingWindow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        contador += Time.deltaTime;
+        contador = (float)player.time;
+        //contador += Time.deltaTime;
         slider.value = contador;
     }
     IEnumerator StartCharge()
@@ -39,12 +46,20 @@ public class LoadingWindow : MonoBehaviour
         {
             if (operation.progress >= 0.9f)
             {
-                if (contador > player.clip.length + 2f)
+                if(contador>3f)
+                {
+                    StartGameBtn.SetActive(true);
+                }
+                if (contador > player.clip.length + 2f||startGame)
                 {
                     operation.allowSceneActivation = true;
                 }
             }
             yield return null;
         }
+    }
+    public void StartGame()
+    {
+        startGame = true;
     }
 }

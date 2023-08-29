@@ -53,11 +53,13 @@ public class PowerManager : MonoBehaviour
             powerBar[0].value -= Time.deltaTime;
             if (time[0] > timeOfPower[0])
             {
+                GameManager.IsAutoPlaying = false;
                 powerBar[0].gameObject.SetActive(false);
                 isUsingPower[0] = false;
                 time[0] = 0f;
                 movement.velocidadMovimientoLateral = velocidadMovimientoLateralActual;
                 automatic.gameObject.SetActive(false);
+                principalCollider.SetActive(true);
             }
         }
         if (isUsingPower[1] && !GameManager.IsPaused&&boonPowerOnGoing)
@@ -122,6 +124,7 @@ public class PowerManager : MonoBehaviour
             soundManager.PlaySound(3);
             powerCoins.Coins = powerCoins.Coins - amountCoins;
             StartCoroutine(AutoPlay());
+            principalCollider.SetActive(false);
         }         
     }
     public void PowerBonification(int amountCoins)
@@ -155,13 +158,15 @@ public class PowerManager : MonoBehaviour
     {
         //principalCollider.SetActive(false);
         automatic.gameObject.SetActive(true);
+        GameManager.IsAutoPlaying = true;
+        automatic.lastPosi = movement.gameObject.transform.position.x;
         timeOfPower[0] = 5f;
         powerBar[0].maxValue = timeOfPower[0];
         powerBar[0].value = powerBar[0].maxValue;
         powerBar[0].gameObject.SetActive(true);
         isUsingPower[0] = true;
         velocidadMovimientoLateralActual = movement.velocidadMovimientoLateral;
-        movement.velocidadMovimientoLateral = 80;
+        movement.velocidadMovimientoLateral *=2;
         yield return null;
     }
     IEnumerator Bonification()

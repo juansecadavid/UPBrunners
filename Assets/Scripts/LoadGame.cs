@@ -9,6 +9,10 @@ public class LoadGame : MonoBehaviour
     private TextMeshProUGUI highScoreText;
     [SerializeField]
     private GameObject[] skins;
+    [SerializeField]
+    private string[] names;
+    [SerializeField]
+    private TextMeshProUGUI name;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,14 +22,11 @@ public class LoadGame : MonoBehaviour
         SaveSystem.LoadSchool();
         highScoreText.text = $"HighScore {GameManager.HighScore}";
         skins[GameManager.Skin].SetActive(true);
+        name.text = $"{names[GameManager.Skin]}";
     }
-    private void Start()
+    private void Update()
     {
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        name.text = $"{names[GameManager.Skin]}";
     }
     public void RightSkinBtn()
     {
