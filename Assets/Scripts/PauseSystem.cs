@@ -69,8 +69,9 @@ public class PauseSystem : MonoBehaviour
     }
     public void RestartLevel()
     {
-        SceneManager.LoadScene("LoadingScene1");
+        SceneManager.LoadScene("SceneTest");
         Time.timeScale = 1;
+        //StartCoroutine(StartCharge());
     }
     public void BackToMenu()
     {
@@ -107,4 +108,18 @@ public class PauseSystem : MonoBehaviour
         }
         volume.PlayMusic();
     }
+    /*IEnumerator StartCharge()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync("SceneTest");
+        operation.allowSceneActivation = false;
+        while (!operation.isDone)
+        {
+            if (operation.progress >= 0.9f)
+            {
+                yield return new WaitForSeconds(1f);
+                operation.allowSceneActivation = true;
+            }
+            yield return null;
+        }
+    }*/
 }
