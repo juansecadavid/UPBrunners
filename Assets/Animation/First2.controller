@@ -326,7 +326,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FirstPlayerController
+  m_Name: First2
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isJumping
@@ -393,7 +393,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: dfb9229c9358c314c8650fb1a5c17426,
+  m_Motion: {fileID: -203655887218126122, guid: 49ea0f263354b3d49834957332c0ebb5,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -433,7 +433,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: jump
-  m_Speed: 0.8
+  m_Speed: 0.6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6310055030249655675}
@@ -613,7 +613,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: run
-  m_Speed: 1.2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4336157843771300009}
@@ -630,7 +630,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 4dfc9137c2f132643bc01852ee6d0a47,
+  m_Motion: {fileID: -203655887218126122, guid: 8a3d55a1c5a552f4885cd4d252d2085f,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

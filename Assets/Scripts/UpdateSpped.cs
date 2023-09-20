@@ -24,7 +24,7 @@ public class UpdateSpped : MonoBehaviour
             gameTime += Time.deltaTime;
             if (gameTime >= (1 / 2f))
             {
-                movement.velocidadMovimiento += 0.1f;
+                movement.velocidadMovimiento += 0.05f;
                 movement.velocidadMovimientoLateral += 0.025f;
                 gameTime = 0f;
             }
