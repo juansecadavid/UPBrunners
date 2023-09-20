@@ -50,7 +50,7 @@ public class LoadingWindow : MonoBehaviour
                 {
                     StartGameBtn.SetActive(true);
                 }
-                if (contador > player.clip.length + 2f||startGame)
+                if (contador >= player.clip.length-0.1f||startGame)
                 {
                     operation.allowSceneActivation = true;
                 }
