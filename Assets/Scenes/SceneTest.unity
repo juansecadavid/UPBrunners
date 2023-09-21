@@ -2724,7 +2724,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401916178}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e1585ab02acbb8e4eb84a33f3e307a78, type: 3}
+  m_Avatar: {fileID: 9000000, guid: ae5040b2278ab3c498519ce947427409, type: 3}
   m_Controller: {fileID: 9100000, guid: 9ce604cc686d2be489f7c944a1b9cb26, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -10188,7 +10188,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: -1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -10220,7 +10220,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
