@@ -1,115 +1,199 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class TilePooling : MonoBehaviour
 {
-    private List<GameObject> tilePool;
-
-    private Queue<GameObject> availableTiles;
-    [SerializeField]
-    private GameObject[] tilePrefabs;
     private List<GameObject> activeTiles = new List<GameObject>();
-    [SerializeField]
-    private Transform playerTransform;
-    private float tileLength = 50;
-    private float lastSpawnZ = 0;
 
-    // Other fields
+    public GameObject[] tilePrefabs;
 
-    void Start()
+    private GameObject[] newtilePrefabs;
+
+    public int[] tileChain=new int[100];
+
+    public float tileLength = 50;
+
+    public int numberOfTiles = 3;
+
+    private int dondePoner = 0;
+
+    public float zSpawn = 0;
+
+    public int tileToActive = 1;
+
+    public Transform playerTransform;
+
+    private void Awake()
     {
-        // Initialize tilePool with a certain number of prefabs
-        tilePool = new List<GameObject>();
-        for (int i = 0; i < 1; i++)
+        newtilePrefabs = new GameObject[tilePrefabs.Length];
+
+        foreach (var tile in tilePrefabs)
         {
-            for (int j = 0; j < tilePrefabs.Length; j++)
+
+            GameObject tilePrefab = Instantiate(tile, new Vector3(0, 0, 0), tile.transform.rotation);
+
+            newtilePrefabs[dondePoner] = tilePrefab;
+
+            tilePrefab.SetActive(false);
+
+            dondePoner++;
+
+        }
+        for (int i = 0; i < 100; i++)
+        {
+            SpawnTile(Random.Range(2, tilePrefabs.Length),i);
+        }
+        for (int i = 0; i < numberOfTiles; i++)
+        {
+
+            if (i < 1)
+
+                SpawnInitialTiles(0);
+
+            else if (i == 1)
+
+                SpawnInitialTiles(1);
+
+            else
             {
-                GameObject tile = Instantiate(tilePrefabs[j]);
-                tile.SetActive(false);
-                tilePool.Add(tile);
+                SpawnActive(tileChain[tileToActive]);
+                tileToActive++;
             }
         }
-
-        availableTiles = new Queue<GameObject>();
-
-        foreach (GameObject tile in tilePool)
-        {
-            availableTiles.Enqueue(tile);
-        }
-
-        ShuffleQueue(availableTiles);
-        tilePrefabs[0].SetActive(true);
-        SpawnTile(tilePrefabs[0]);
-        tilePrefabs[1].SetActive(true);
-        SpawnTile(tilePrefabs[1]);
-        tilePrefabs[2].SetActive(true);
-        SpawnTile(tilePrefabs[2]);
     }
-    private void Update()
+
+    void Update()
     {
-        if (playerTransform.position.z - 50 >= lastSpawnZ-250)
+        if (playerTransform.position.z - 50 >= zSpawn - (numberOfTiles * tileLength))
         {
-
-            GameObject newTile = GetTileFromPool();
-
-            SpawnTile(newTile);
-        }
-    }
-    public void SpawnTile(GameObject newTile)
-    {
-
-        newTile.transform.position = -transform.right*lastSpawnZ;
-
-        lastSpawnZ += tileLength;
-
-        activeTiles.Add(newTile);
-
-        DeleteTile();
-    }
-    void ShuffleQueue(Queue<GameObject> queue)
-    {
-
-        int n = queue.Count;
-
-        while (n > 1)
-        {
-
-            n--;
-
-            int k = Random.Range(0, n + 1);
-
-            GameObject tile = queue.Dequeue();
-
-            queue.Enqueue(tile);
-
-            GameObject value = queue.Dequeue();
-
-            queue.Enqueue(value);
-
+            DeleteTile();
+            SpawnActive(tileChain[tileToActive]);
+            tileToActive++;
         }
 
     }
-    GameObject GetTileFromPool()
+
+    public void SpawnTile(int tileIndex, int index)
     {
-        if (availableTiles.Count == 0)
+
+        int indexToUse = SpawnerVerficator(tileIndex,index);
+
+        tileChain[index] = indexToUse;
+
+    }
+
+    public void SpawnInitialTiles(int indexToUse)
+    {
+
+        GameObject tile = newtilePrefabs[indexToUse];
+
+        tile.transform.position = -transform.right * zSpawn;
+
+        tile.SetActive(true);
+
+        activeTiles.Add(tile);
+
+        zSpawn += tileLength;
+
+    }
+
+    public int SpawnerVerficator(int tileIndex, int actualChainIndex)
+
+    {
+
+        if (newtilePrefabs[tileIndex].CompareTag("Spawner") && !ActiveSpawnerLastFive(tileIndex, actualChainIndex))
         {
-            // Pool needs to be increased
-            // Instantiate more tiles and enqueue them
+            return tileIndex;
         }
 
-        GameObject spawnedTile = availableTiles.Dequeue();
-        spawnedTile.SetActive(true);
-        return spawnedTile;
+        else if (newtilePrefabs[tileIndex].CompareTag("Spawner") && ActiveSpawnerLastFive(tileIndex,actualChainIndex))
+
+        {
+            int newIndex = Random.Range(2, tilePrefabs.Length);
+
+            int definitiveIndex = SpawnerVerficator(newIndex,actualChainIndex);
+
+            return definitiveIndex;
+
+        }
+
+        else if (ActiveLastFive(tileIndex,actualChainIndex))
+        {
+
+            int newIndex = Random.Range(2, tilePrefabs.Length);
+
+            int definitiveIndex = SpawnerVerficator(newIndex,actualChainIndex);
+
+            return definitiveIndex;
+
+        }
+
+        return tileIndex;
+
     }
 
     private void DeleteTile()
     {
-        GameObject destroyedTile = activeTiles[0];
-        destroyedTile.SetActive(false);
-        activeTiles.RemoveAt(0);
+        if(tileToActive>6)
+        {
+            newtilePrefabs[tileChain[tileToActive - 6]].SetActive(false);
+        }  
+        else if(tileToActive==5)
+        {
+            newtilePrefabs[0].SetActive(false);
+            newtilePrefabs[1].SetActive(false);
+        }
 
-        availableTiles.Enqueue(destroyedTile);
+    }
+    bool ActiveLastFive(int indexToUse,int actualChainIndex)
+    {
+        if(actualChainIndex>6)
+        {
+            for (int i = 1; i < 7; i++)
+            {
+                if (tileChain[actualChainIndex - i] == indexToUse)
+                {
+                    return true;
+                }
+            }
+        }    
+        else
+        {
+            for (int i = 0; i < actualChainIndex; i++)
+            {
+                if (tileChain[actualChainIndex - (i+1)] == indexToUse)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    bool ActiveSpawnerLastFive(int indexToUse, int actualChainIndex)
+    {
+        if(actualChainIndex>4)
+        {
+            for (int i = 1; i < 6; i++)
+            {
+                int tile = tileChain[actualChainIndex - i];
+                if (newtilePrefabs[tile].CompareTag("Spawner"))
+                {
+                    return true;
+                }
+            }
+        }    
+        return false;
+    }
+    void SpawnActive(int tileToActive)
+    {
+
+        GameObject tile = newtilePrefabs[tileToActive];
+
+        tile.transform.position = -transform.right * zSpawn;
+
+        tile.SetActive(true);
+
+        zSpawn += tileLength;
     }
 }

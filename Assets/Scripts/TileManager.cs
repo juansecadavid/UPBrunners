@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TileManager : MonoBehaviour
-{
+{/*
     private List<GameObject> activeTiles = new List<GameObject>();
 
     private List<GameObject> respawner = new List<GameObject>();
@@ -22,7 +22,7 @@ public class TileManager : MonoBehaviour
     public float zSpawn = 0;
 
     public Transform playerTransform;
-
+    
     private void Awake()
     {
         newtilePrefabs = new GameObject[tilePrefabs.Length];
@@ -57,11 +57,6 @@ public class TileManager : MonoBehaviour
                 SpawnTile(Random.Range(1, tilePrefabs.Length));
 
         }
-    }
-    void Start()
-
-    {
-
     }
 
     void Update()
@@ -160,20 +155,11 @@ public class TileManager : MonoBehaviour
 
     }
 
-    public int RepetitionVerificator()
-
-    {
-
-        return 0;
-
-    }
-
     private void DeleteTile()
 
     {
 
         if (activeTiles[0].CompareTag("Spawner"))
-
         {
 
             if (respawner.Count > 0)
@@ -192,5 +178,5 @@ public class TileManager : MonoBehaviour
 
         activeTiles.RemoveAt(0);
 
-    }
+    }*/
 }
