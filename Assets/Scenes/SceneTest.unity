@@ -311,7 +311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '!Perdiste!'
+  m_text: "\xA1Perdiste!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce98504a1c0701546af7cbfb1fd5ed46, type: 2}
   m_sharedMaterial: {fileID: 8038611328447852115, guid: ce98504a1c0701546af7cbfb1fd5ed46,
@@ -1294,7 +1294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &198842930
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2263,7 +2263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000041962, y: 908}
+  m_AnchoredPosition: {x: -0.000041962, y: 772.7}
   m_SizeDelta: {x: 419.62, y: 153.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &353920606
@@ -2589,7 +2589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6666667, b: 0.6666667, a: 1}
+  m_Color: {r: 1, g: 0.6666667, b: 0.6666667, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6276,7 +6276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000021234155, y: -549}
+  m_AnchoredPosition: {x: -0.000021234155, y: -705.6}
   m_SizeDelta: {x: 751.2, y: 291.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1109724364
@@ -7451,7 +7451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000030398369, y: 917}
+  m_AnchoredPosition: {x: -0.000030398369, y: 992.4}
   m_SizeDelta: {x: 450.3, y: 164.29999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262909017
@@ -8502,8 +8502,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8589,7 +8589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 688.0001}
+  m_AnchoredPosition: {x: -0.0000076293945, y: 809.8}
   m_SizeDelta: {x: 335.2, y: 122.29999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482344132
