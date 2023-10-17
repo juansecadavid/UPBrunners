@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vendedor : MonoBehaviour
+public class vendedor : MonoBehaviour
 {
     private SoundManager soundManager;
     private LevelManager levelManager;
     private MessagesOnPlay ventas;
-    private Movement movement;
     [SerializeField]private int cuota;
-    [SerializeField]    private float aumento;
     private void Awake()
     {
         soundManager = FindObjectOfType<SoundManager>();
         levelManager = FindObjectOfType<LevelManager>();
         ventas = FindObjectOfType<MessagesOnPlay>();
-        movement = FindObjectOfType<Movement>();
         //StartCoroutine(Animate());
     }
     private void OnTriggerEnter(Collider other)
@@ -35,12 +32,9 @@ public class Vendedor : MonoBehaviour
             }
 
             ventas.ShowMessage("Te han quitado " + cuota + " monedas", 1);
-            movement.velocidadMovimiento += aumento;
+
             soundManager.PlaySound(0);
             levelManager.HideAndShow(gameObject);
-
-
         }
-
     }
 }
