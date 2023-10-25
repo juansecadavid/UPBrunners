@@ -504,6 +504,7 @@ Transform:
   - {fileID: 6046480967729210528}
   - {fileID: 7909942352051274024}
   - {fileID: 2961611646575770354}
+  - {fileID: 6102688576936067304}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -949,7 +950,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cuota: 5
-  aumento: 3
+  aumento: 2
+  aumentoScore: 2
+--- !u!1 &8928030205764548794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6102688576936067304}
+  - component: {fileID: 8214729721509146016}
+  m_Layer: 0
+  m_Name: Corrutina
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6102688576936067304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928030205764548794}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 108.46177, y: 3.908654, z: 0.13001251}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6542959580980717495}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8214729721509146016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928030205764548794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73362542c639ceb4ea6b209dd8d2b96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuota: 5
+  aumento: 7
+  aumentoScore: 7
 --- !u!1001 &858305761088606729
 PrefabInstance:
   m_ObjectHideFlags: 0

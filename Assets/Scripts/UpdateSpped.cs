@@ -6,6 +6,7 @@ public class UpdateSpped : MonoBehaviour
 {
     private Movement movement;
     private float gameTime=0f;
+    public float aumento = 0.05f;
     [SerializeField]
     private float maxTime;
     [SerializeField]
@@ -24,7 +25,7 @@ public class UpdateSpped : MonoBehaviour
             gameTime += Time.deltaTime;
             if (gameTime >= (1 / 2f))
             {
-                movement.velocidadMovimiento += 0.05f;
+                movement.velocidadMovimiento += aumento;
                 movement.velocidadMovimientoLateral += 0.025f;
                 gameTime = 0f;
             }

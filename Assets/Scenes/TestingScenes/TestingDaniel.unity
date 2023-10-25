@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2263,7 +2263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000041962, y: 772.7}
+  m_AnchoredPosition: {x: -0.000041962, y: 772.7001}
   m_SizeDelta: {x: 419.62, y: 153.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &353920606
@@ -8589,7 +8589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 809.8}
+  m_AnchoredPosition: {x: -0.0000076293945, y: 809.80005}
   m_SizeDelta: {x: 335.2, y: 122.29999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482344132
@@ -10570,6 +10570,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7338784298659017452, guid: 1bbaa6509834ab249a504b72a7fc65c5,
+        type: 3}
+      propertyPath: aumento
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338784298659017452, guid: 1bbaa6509834ab249a504b72a7fc65c5,
+        type: 3}
+      propertyPath: aumentoScore
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbaa6509834ab249a504b72a7fc65c5, type: 3}
 --- !u!1 &1907132233
@@ -11758,6 +11768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7efd994d7df14964284d0a9549ecb79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aumento: 0.05
   maxTime: 1000000
   maxSpeed: 70
 --- !u!114 &2080325711
@@ -11773,6 +11784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1338675820}
+  increment: 1
   speed: 40
 --- !u!114 &2080325713
 MonoBehaviour:
