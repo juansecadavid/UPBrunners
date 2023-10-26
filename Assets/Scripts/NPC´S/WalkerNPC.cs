@@ -12,6 +12,8 @@ public class WalkerNPC : MonoBehaviour
     bool moveToLeft;
     [SerializeField]
     ResetPosition resetPosition;
+    [SerializeField]
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,11 @@ public class WalkerNPC : MonoBehaviour
                     posFixer.y = resetPosition.initialPos.y;
                     //posFixer.z = resetPosition.initialPos.z;
                     transform.position = posFixer;
+                    //animator.SetBool("Idle", true);
+                }
+                else
+                {
+                    animator.SetBool("Idle", true);
                 }
                 break;
                 case false:
@@ -42,13 +49,13 @@ public class WalkerNPC : MonoBehaviour
                 }
                     break;
         }
-        if (transform.position.x > -3&&!GameManager.IsPaused)
+        /*if (transform.position.x > -3&&!GameManager.IsPaused)
         {
             posFixer += moveDirection * speed * Time.deltaTime;
             posFixer.y = resetPosition.initialPos.y;
             //posFixer.z = resetPosition.initialPos.z;
             transform.position = posFixer;
-        }      
+        }   */   
     }
     private void OnEnable()
     {
