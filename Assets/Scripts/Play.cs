@@ -51,7 +51,7 @@ public class Play : MonoBehaviour
             panelConfig.SetActive(true);
             configPanel = true;
             LeanTween.alpha(panelConfig.GetComponent<RectTransform>(), 1, 0.2f);
-            LeanTween.moveY(panelConfig.GetComponent<RectTransform>(), 37, 0.2f);
+            LeanTween.moveY(panelConfig.GetComponent<RectTransform>(), -60, 0.2f);
         }
     }
     public void SkinPanel()
@@ -87,7 +87,6 @@ public class Play : MonoBehaviour
     {
         if (panelCredits.activeInHierarchy)
         {
-
             LeanTween.moveY(panelCredits.GetComponent<RectTransform>(), 900, 0.2f).setOnComplete(DesactivateCredits);
             LeanTween.alpha(panelCredits.GetComponent<RectTransform>(), 0, 0.2f);
         }
