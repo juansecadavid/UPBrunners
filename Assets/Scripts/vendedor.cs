@@ -33,18 +33,28 @@ public class Vendedor : MonoBehaviour
 
             PowerCoins coins = other.GetComponentInParent<PowerCoins>();
 
-            if (coins.Coins <= cuota)
+            if (coins.Coins < cuota)
             {
-                coins.Coins = 0;
+
+                ventas.ShowMessage("No tienes monedas suficientes", 1);
+            
             }
             else
             {
-                coins.Coins = coins.Coins - cuota;
+                if (coins.Coins == cuota)
+                {
+                    coins.Coins = 0;
+                }
+                else 
+                {
+                    coins.Coins = coins.Coins - cuota;
+                    corrutinaVendedor.StartCoroutine(corrutinaVendedor.Boost(other));
+                }
+
+                ventas.ShowMessage("Te han quitado " + cuota + " monedas", 1);
             }
 
-            corrutinaVendedor.StartCoroutine(corrutinaVendedor.Boost(other));
-
-            ventas.ShowMessage("Te han quitado " + cuota + " monedas", 1);
+            
             
             
             soundManager.PlaySound(0);
