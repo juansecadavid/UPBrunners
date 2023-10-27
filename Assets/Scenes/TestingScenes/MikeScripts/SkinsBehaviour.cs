@@ -4,14 +4,33 @@ using UnityEngine;
 
 public class SkinsBehaviour : MonoBehaviour
 {
-  public int puntuacionRequerida = 1500; 
+  public int puntuacionRequerida = 100; 
     public GameObject modelo3D; 
-    private Score scoreScript; // Esto es nuevo
+
+    private GameObject Skin0;
+
+    private GameObject Skin1;
+    public GameObject colliderAct;
+    private PowerCoins powerCoinsScript;
+    public Canvas canvas;
+    private Score scoreScript; 
+
+    private bool botonPresionado = false;
 
     void Start()
     {
+        colliderAct.SetActive(false);
         modelo3D.SetActive(false);
-        scoreScript = GameObject.FindObjectOfType<Score>(); // Encuentra el script de puntuación en la escena
+        scoreScript = GameObject.FindObjectOfType<Score>();
+        powerCoinsScript = GameObject.FindObjectOfType<PowerCoins>(); // Encuentra el script de puntuación en la escena
+        Skin0 = GameObject.FindGameObjectWithTag("Skin0");
+        Skin1 = GameObject.FindGameObjectWithTag("Skin1");
+
+        if(Skin0 == null)
+        {
+         Debug.LogError("No se encontraron los objetos Skin0 y/o Skin1 en la escena.");
+        }
+
     }
 
     void Update()
@@ -20,14 +39,43 @@ public class SkinsBehaviour : MonoBehaviour
         {
             int puntuacionActual = scoreScript.CurrentNumber; 
 
-            if (puntuacionActual > puntuacionRequerida)
+            if (puntuacionActual > puntuacionRequerida && !botonPresionado)
             {
-                modelo3D.SetActive(true);
+                modelo3D.gameObject.SetActive(true);
+                colliderAct.SetActive(true);
             }
             else
             {
-                modelo3D.SetActive(false);
+                modelo3D.gameObject.SetActive(false);
+                colliderAct.SetActive(false);
             }
         }
+    }
+
+    public void AdquirirSkin()
+    {
+        if (powerCoinsScript.Coins >= 5)
+        {
+            botonPresionado = true;
+            powerCoinsScript.Coins -= 5;
+            modelo3D.gameObject.SetActive(false);
+            Time.timeScale = 1.0f;
+            canvas.gameObject.SetActive(false);
+            Skin0.gameObject.SetActive(false);
+            Skin1.gameObject.SetActive(true);
+        }
+        else
+        {
+            // El jugador no tiene suficientes monedas para adquirir la skin
+            // Puedes agregar un mensaje o alguna otra lógica aquí si deseas.
+        }
+    }
+
+    public void SeguirSinAdquirir()
+    {
+        botonPresionado = true;
+        Time.timeScale = 1.0f;
+        canvas.gameObject.SetActive(false);
+        modelo3D.gameObject.SetActive(false);
     }
 }

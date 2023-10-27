@@ -5,7 +5,7 @@ using TMPro;
 
 public class PowerCoins : MonoBehaviour
 {
-    private int coins = 0;
+    public int coins = 0;
     [SerializeField]
     private TextMeshProUGUI coinsText;
     public int Coins { get => coins; set => coins = value; }

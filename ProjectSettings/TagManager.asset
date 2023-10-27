@@ -18,6 +18,9 @@ TagManager:
   - Spawner
   - Shield
   - Car
+  - Skin 0
+  - Skin0
+  - Skin1
   layers:
   - Default
   - TransparentFX
