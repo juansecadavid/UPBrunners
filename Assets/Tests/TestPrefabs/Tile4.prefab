@@ -1049,10 +1049,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0a7cb2c6095f74b8bd40e7173b2247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntuacionRequerida: 1500
+  puntuacionRequerida: 500
   modelo3D: {fileID: 8758617455972299268}
-  Skin0: {fileID: 0}
-  Skin1: {fileID: 0}
   colliderAct: {fileID: 2305872424958249152}
   canvas: {fileID: 5557197321101273507}
 --- !u!1 &6643631505172537868

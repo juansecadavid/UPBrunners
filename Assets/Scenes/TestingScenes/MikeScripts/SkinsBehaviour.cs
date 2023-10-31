@@ -8,17 +8,24 @@ public class SkinsBehaviour : MonoBehaviour
     public GameObject modelo3D; 
 
     private GameObject Skin0;
-
+    private SkinSelector skinaUsar;
     private GameObject Skin1;
     public GameObject colliderAct;
     private PowerCoins powerCoinsScript;
     public Canvas canvas;
     private Score scoreScript; 
+    private Movement movement;
 
     private bool botonPresionado = false;
 
     void Start()
     {
+        skinaUsar=FindAnyObjectByType<SkinSelector>();
+        movement = FindAnyObjectByType<Movement>();
+        if(skinaUsar != null )
+        {
+            Debug.Log("Loencontré");
+        }
         colliderAct.SetActive(false);
         modelo3D.SetActive(false);
         scoreScript = GameObject.FindObjectOfType<Score>();
@@ -54,15 +61,17 @@ public class SkinsBehaviour : MonoBehaviour
 
     public void AdquirirSkin()
     {
-        if (powerCoinsScript.Coins >= 5)
+        if (powerCoinsScript.Coins >= 1)
         {
             botonPresionado = true;
-            powerCoinsScript.Coins -= 5;
+            powerCoinsScript.Coins -= 1;
             modelo3D.gameObject.SetActive(false);
             Time.timeScale = 1.0f;
             canvas.gameObject.SetActive(false);
             Skin0.gameObject.SetActive(false);
-            Skin1.gameObject.SetActive(true);
+            //Skin1.gameObject.SetActive(true);
+            skinaUsar.ponerNuevs(1);
+            movement.CambiarAnimator(skinaUsar.animator);
         }
         else
         {
