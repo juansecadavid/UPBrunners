@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dae87ae298ae284da97f7fce25c243d, type: 3}
   m_Name: CollectCoins
   m_EditorClassIdentifier: 
-  MissionName: ollect Coins!
+  MissionName: Collect Coins!
   MissionText: CollectCoins
   IsCompleted: 0
   RequiredItemCount: 0
