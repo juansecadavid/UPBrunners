@@ -28,6 +28,12 @@ public class CorrutinaVendedor : MonoBehaviour
 
         //StartCoroutine(Animate());
     }
+
+    public void StartMetodo(Collider other)
+    {
+
+        StartCoroutine(Boost(other));
+    }
     public IEnumerator Boost(Collider other)
     {
         other.CompareTag("Player");

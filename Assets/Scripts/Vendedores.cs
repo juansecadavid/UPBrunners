@@ -4,7 +4,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance.VisualScripting;
 
-public class Vendedor : MonoBehaviour
+public class Vendedores : MonoBehaviour
 {
     private SoundManager soundManager;
     private LevelManager levelManager;
@@ -49,7 +49,7 @@ public class Vendedor : MonoBehaviour
                 else
                 {
                     coins.Coins = coins.Coins - cuota;
-                    
+
                 }
 
                 corrutinaVendedor.StartMetodo(other);
@@ -69,6 +69,5 @@ public class Vendedor : MonoBehaviour
 
 
     }
-
 
 }
