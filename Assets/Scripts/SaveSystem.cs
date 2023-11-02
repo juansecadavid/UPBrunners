@@ -58,4 +58,5 @@ public static class SaveSystem
         else
             GameManager.School = 0;
     }
+
 }

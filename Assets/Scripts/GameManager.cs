@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,5 +27,10 @@ public static class GameManager
     public static bool IsPaused { get => isPaused; set => isPaused = value; }
     public static bool HasLost { get => hasLost; set => hasLost = value; }
     public static bool IsAutoPlaying { get => isAutoPlaying; set => isAutoPlaying = value; }
+
+    public static bool[] skinsDesbloqueadas = new bool[4];
     public static MissionManager MMInstance { get => mMInstance; set => mMInstance = value; }
 }
+
+
+

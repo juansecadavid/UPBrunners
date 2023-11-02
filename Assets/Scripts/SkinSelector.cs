@@ -9,17 +9,16 @@ public class SkinSelector : MonoBehaviour
     public Animator animator;
     public GameObject[] Skins { get => skins; set => skins = value; }
 
-    // Start is called before the first frame update
     void Awake()
     {
         skins[GameManager.Skin].SetActive(true);
     }
 
 
-    public void ponerNuevs(int cual)
+    public void UnlockSkin(int skin)
     {
         skins[GameManager.Skin].SetActive(false);
-        GameManager.Skin = cual;
+        GameManager.Skin = skin;
         skins[GameManager.Skin].SetActive(true);
         animator = skins[GameManager.Skin].GetComponent<Animator>();
     }

@@ -2,41 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SkinsBehaviour : MonoBehaviour
 {
   public int puntuacionRequerida = 100; 
     public GameObject modelo3D; 
-
-    private GameObject Skin0;
     private SkinSelector skinaUsar;
-    private GameObject Skin1;
     public GameObject colliderAct;
     private PowerCoins powerCoinsScript;
     public Canvas canvas;
     private Score scoreScript; 
     private Movement movement;
 
+    private LoadGame loadGameScript;
+
+    public bool[] skinsDesbloqueadas;
+
     private bool botonPresionado = false;
 
     void Start()
     {
+        loadGameScript=FindAnyObjectByType<LoadGame>();
         skinaUsar=FindAnyObjectByType<SkinSelector>();
         movement = FindAnyObjectByType<Movement>();
-        if(skinaUsar != null )
-        {
-            Debug.Log("Loencontré");
-        }
         colliderAct.SetActive(false);
         modelo3D.SetActive(false);
         scoreScript = GameObject.FindObjectOfType<Score>();
         powerCoinsScript = GameObject.FindObjectOfType<PowerCoins>(); // Encuentra el script de puntuación en la escena
-        Skin0 = GameObject.FindGameObjectWithTag("Skin0");
-        Skin1 = GameObject.FindGameObjectWithTag("Skin1");
-
-        if(Skin0 == null)
-        {
-         Debug.LogError("No se encontraron los objetos Skin0 y/o Skin1 en la escena.");
-        }
 
     }
 
@@ -68,9 +60,9 @@ public class SkinsBehaviour : MonoBehaviour
             modelo3D.gameObject.SetActive(false);
             Time.timeScale = 1.0f;
             canvas.gameObject.SetActive(false);
-            Skin0.gameObject.SetActive(false);
-            //Skin1.gameObject.SetActive(true);
-            skinaUsar.ponerNuevs(1);
+            skinaUsar.UnlockSkin(1);
+            
+            loadGameScript.skinsDesbloqueadas[1] = true;
             movement.CambiarAnimator(skinaUsar.animator);
         }
         else
