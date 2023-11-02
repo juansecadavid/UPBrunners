@@ -210,6 +210,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 016422a5bec72564caaa99c576dd018d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Skin 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 016422a5bec72564caaa99c576dd018d,
         type: 3}
       propertyPath: m_Controller
@@ -659,7 +664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.054}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 11.5, y: -10.000023}
+  m_AnchoredPosition: {x: 11.5, y: -10}
   m_SizeDelta: {x: -14.9, y: 0.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &95320816
@@ -2988,6 +2993,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae5040b2278ab3c498519ce947427409,
+        type: 3}
+      propertyPath: m_TagString
+      value: Skin 1
       objectReference: {fileID: 0}
     - target: {fileID: 2559285840627121667, guid: ae5040b2278ab3c498519ce947427409,
         type: 3}
@@ -5338,7 +5348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2172629, y: 0.305}
   m_AnchorMax: {x: 0.7623686, y: 0.7016274}
-  m_AnchoredPosition: {x: 49.3, y: -0.5109}
+  m_AnchoredPosition: {x: 49.3, y: -0.5109005}
   m_SizeDelta: {x: 197.5627, y: 133.2085}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448063604
@@ -5874,6 +5884,7 @@ GameObject:
   - component: {fileID: 1539141440}
   - component: {fileID: 1539141439}
   - component: {fileID: 1539141442}
+  - component: {fileID: 1539141443}
   m_Layer: 0
   m_Name: LoadGame
   m_TagString: Untagged
@@ -5905,6 +5916,7 @@ MonoBehaviour:
   - Santi
   - Sofi
   name: {fileID: 1370594389}
+  skinsDesbloqueadas: 
 --- !u!4 &1539141440
 Transform:
   m_ObjectHideFlags: 0
@@ -5935,6 +5947,19 @@ MonoBehaviour:
   missionManager: {fileID: 291152039}
   missionsParent: {fileID: 239646703}
   missionPanel: {fileID: 239646702}
+--- !u!114 &1539141443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539141438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee091a49383d48dcb2cfd8b94f7595f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetoXd: {fileID: 1539141438}
 --- !u!1 &1548600343
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,6 +6114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bd6e6bfa8ce6b154b8995d1d95f29a80,
+        type: 3}
+      propertyPath: m_TagString
+      value: Skin 4
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: bd6e6bfa8ce6b154b8995d1d95f29a80,
         type: 3}
@@ -8024,6 +8054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1585ab02acbb8e4eb84a33f3e307a78,
+        type: 3}
+      propertyPath: m_TagString
+      value: Skin 2
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: e1585ab02acbb8e4eb84a33f3e307a78,
         type: 3}
