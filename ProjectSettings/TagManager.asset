@@ -18,6 +18,9 @@ TagManager:
   - Spawner
   - Shield
   - Car
+  - Collect Coins!
+  - Reach Score
+  - PanelMisiones
   layers:
   - Default
   - TransparentFX

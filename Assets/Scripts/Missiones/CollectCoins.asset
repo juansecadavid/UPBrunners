@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: CollectCoins
   m_EditorClassIdentifier: 
   MissionName: Collect Coins!
-  MissionText: CollectCoins
+  MissionText: Collect 3 coins just in one go!
   IsCompleted: 0
+  MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,
+    type: 3}
+  mis: {fileID: 0}
   RequiredItemCount: 0
   CurrentItemCount: 0
   reward:

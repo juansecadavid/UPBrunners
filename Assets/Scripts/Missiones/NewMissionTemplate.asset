@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dae87ae298ae284da97f7fce25c243d, type: 3}
   m_Name: NewMissionTemplate
   m_EditorClassIdentifier: 
-  MissionName: 
-  MissionText: 
+  MissionName: Reach Score
+  MissionText: Geet to a 450 score in just one go!
   IsCompleted: 0
+  MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,
+    type: 3}
+  mis: {fileID: 0}
   RequiredItemCount: 0
   CurrentItemCount: 0
   reward:
