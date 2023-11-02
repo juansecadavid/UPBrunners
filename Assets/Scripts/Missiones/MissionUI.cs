@@ -29,7 +29,8 @@ public class MissionUI : MonoBehaviour
         foreach (var mission in activeMissions)
         {
             activeM = FindActiveMission(mission,missionList);
-            activeM.transform.SetParent(missionPanel.transform, false);
+            GameObject funcionaPls = Instantiate(activeM);
+            funcionaPls.transform.SetParent(missionPanel.transform, false);
             Debug.Log("ENTRÉ AQUÍ2");
         }
     }
@@ -39,7 +40,6 @@ public class MissionUI : MonoBehaviour
         {
             if (missionList!=null&&ActiveMission.MissionName == missionList[i].tag)
             {
-                Debug.Log("ENTRÉ AQUÍ1");
                 return missionList[i];
             }
             else

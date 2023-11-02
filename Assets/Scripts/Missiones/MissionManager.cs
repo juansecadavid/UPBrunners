@@ -4,6 +4,7 @@ using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class MissionManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class MissionManager : MonoBehaviour
     public List<GameObject> missionList=new List<GameObject>();
     public List<MissionBase> activeMissions = new List<MissionBase>();      // Lista de misiones activas
     public List<MissionBase> availableMissions = new List<MissionBase>();   // Todas las misiones disponibles
-
+    bool firstTime=true;
     private void Awake()
     {
         if (Instance == null&&GameManager.MMInstance==null)
@@ -35,7 +36,7 @@ public class MissionManager : MonoBehaviour
             InstantiateMissions();
             InitializeMissions(); // Inicializar las misiones si es necesario, solo la primera vez    
         }
-        InstantiateMissions();
+        //InstantiateMissions();
         GameManager.MMInstance.missionUI = FindAnyObjectByType<MissionUI>();
         GameManager.MMInstance.missionUI.ShowMissions(GameManager.MMInstance.activeMissions, GameManager.MMInstance.missionList);
     }
@@ -43,7 +44,7 @@ public class MissionManager : MonoBehaviour
     {
         foreach (var mission in GameManager.MMInstance.availableMissions)
         {
-            mission.SetMission();
+            mission.SetMission(transform);
             mission.mis.tag = $"{mission.MissionName}";
             GameManager.MMInstance.missionList.Add(mission.mis);
         }
@@ -81,5 +82,26 @@ public class MissionManager : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        // Asegúrate de suscribir el método al evento cuando el objeto se activa
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        // Es igualmente importante desuscribir el método cuando el objeto se desactiva
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Aquí puedes comprobar si es la escena correcta antes de ejecutar `firstConfig`
+        if (scene.name == "Inicio"&&!firstTime)
+        {
+            FirstConfig();
+        }
+        firstTime = false;
+    }
     // Resto de la lógica del MissionManager...
 }

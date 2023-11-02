@@ -8196,6 +8196,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PanelMisiones
       objectReference: {fileID: 0}
+    - target: {fileID: 4199352029738414536, guid: f6a2589af067db34e961932c323d7331,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4199352029738414537, guid: f6a2589af067db34e961932c323d7331,
         type: 3}
       propertyPath: m_Pivot.x

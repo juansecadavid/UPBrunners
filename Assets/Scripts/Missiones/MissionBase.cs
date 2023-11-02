@@ -43,10 +43,10 @@ public class MissionBase : ScriptableObject
         else
             return null;
     }
-    public void SetMission()
+    public void SetMission(Transform parent)
     {
         MissionPrefab.missionTitle.text = MissionName;
         MissionPrefab.missionDescription.text = MissionText;
-        mis = Instantiate(MissionPrefab.gameObject);
+        mis = Instantiate(MissionPrefab.gameObject,parent,false);
     }
 }
