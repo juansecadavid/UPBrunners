@@ -88,13 +88,13 @@ public class Play : MonoBehaviour
         if (panelCredits.activeInHierarchy)
         {
             LeanTween.moveY(panelCredits.GetComponent<RectTransform>(), 900, 0.2f).setOnComplete(DesactivateCredits);
-            LeanTween.alpha(panelCredits.GetComponent<RectTransform>(), 0, 0.2f);
+            //LeanTween.alpha(panelCredits.GetComponent<RectTransform>(), 0, 0.2f);
         }
         else
         {
             panelCredits.SetActive(true);
             LeanTween.moveY(panelCredits.GetComponent<RectTransform>(), 0, 0.2f);
-            LeanTween.alpha(panelCredits.GetComponent<RectTransform>(), 1, 0.2f);
+            //LeanTween.alpha(panelCredits.GetComponent<RectTransform>(), 1, 0.2f);
         }
     }
     private void DesactivateCredits()

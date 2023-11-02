@@ -8,11 +8,12 @@ public class MissionBase : ScriptableObject
     public string MissionName;       // Nombre de la misión
     public string MissionText;       // Descripción de la misión
     public bool IsCompleted;         // Estado de la misión
-
+    public MissionPrefab MissionPrefab;
+    public GameObject mis;
     // Para este ejemplo, vamos a usar una condición simple. Pero puedes expandir esto más tarde.
     public int RequiredItemCount;    // Ejemplo: Recolecta 10 manzanas
     public int CurrentItemCount;     // Cuántos ítems ha recolectado el jugador
-
+    //public GameObject MissionUI;
     public Reward reward;            // Recompensa al completar la misión
 
     [System.Serializable]
@@ -41,5 +42,11 @@ public class MissionBase : ScriptableObject
             return reward;
         else
             return null;
+    }
+    public void SetMission()
+    {
+        MissionPrefab.missionTitle.text = MissionName;
+        MissionPrefab.missionDescription.text = MissionText;
+        mis = Instantiate(MissionPrefab.gameObject);
     }
 }
