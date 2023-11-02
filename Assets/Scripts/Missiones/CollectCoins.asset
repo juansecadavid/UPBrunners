@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dae87ae298ae284da97f7fce25c243d, type: 3}
+  m_Name: CollectCoins
+  m_EditorClassIdentifier: 
+  MissionName: Collect Coins!
+  MissionText: Collect 3 coins just in one go!
+  IsCompleted: 0
+  MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,
+    type: 3}
+  mis: {fileID: 0}
+  RequiredItemCount: 0
+  CurrentItemCount: 0
+  reward:
+    ExperiencePoints: 0
+    Gold: 0
