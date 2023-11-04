@@ -1143,6 +1143,9 @@ MonoBehaviour:
   availableMissions:
   - {fileID: 11400000, guid: 325cfb40fcea0f9428317ee4a61a5ccf, type: 2}
   - {fileID: 11400000, guid: 658403e4f3ae82641a71b63466702de9, type: 2}
+  - {fileID: 11400000, guid: b66a739189c3d1b4192efd71544c3348, type: 2}
+  - {fileID: 11400000, guid: f0bb1fdc94196e54899cc0737d0c1bb0, type: 2}
+  - {fileID: 11400000, guid: 483855da0728b7f428a4eea55fb8714b, type: 2}
 --- !u!4 &291152040
 Transform:
   m_ObjectHideFlags: 0
@@ -2638,7 +2641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -35.994995, y: -50.498962}
+  m_AnchoredPosition: {x: -35.994995, y: -50.4989}
   m_SizeDelta: {x: 190, y: 100.30005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781613208
