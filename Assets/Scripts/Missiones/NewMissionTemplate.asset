@@ -15,10 +15,11 @@ MonoBehaviour:
   MissionName: Reach Score
   MissionText: Geet to a 450 score in just one go!
   IsCompleted: 0
+  condition: {fileID: 11400000, guid: d5c27b180a752284f95230c4b6c3bbf1, type: 2}
   MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,
     type: 3}
   mis: {fileID: 0}
-  RequiredItemCount: 0
+  RequiredItemCount: 4000
   CurrentItemCount: 0
   reward:
     ExperiencePoints: 0

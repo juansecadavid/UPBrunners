@@ -15,6 +15,7 @@ public static class GameManager
     private static bool isAutoPlaying=false;
     private static List<GameObject> ActiveLetter=new List<GameObject>();
     private static MissionManager mMInstance;
+    private static List<GameObject> activeMissions=new List<GameObject>();
 
     public static int HighScore { get => highScore; set => highScore = value; }
     public static int Loses { get => loses; set => loses = value; }
@@ -27,4 +28,5 @@ public static class GameManager
     public static bool HasLost { get => hasLost; set => hasLost = value; }
     public static bool IsAutoPlaying { get => isAutoPlaying; set => isAutoPlaying = value; }
     public static MissionManager MMInstance { get => mMInstance; set => mMInstance = value; }
+    public static List<GameObject> ActiveMissions { get => activeMissions; set => activeMissions = value; }
 }

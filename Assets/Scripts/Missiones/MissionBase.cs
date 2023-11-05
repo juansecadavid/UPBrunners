@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewMissionTemplate", menuName = "Misiones/Nueva Misión")]
+[CreateAssetMenu(fileName = "NewMissionTemplate", menuName = "Missions/Nueva Misión")]
 public class MissionBase : ScriptableObject
 {
     public string MissionName;       // Nombre de la misión
     public string MissionText;       // Descripción de la misión
-    public bool IsCompleted;         // Estado de la misión
+    public bool IsCompleted;
+    public MissionConditionSO condition;// Estado de la misión
     public MissionPrefab MissionPrefab;
     public GameObject mis;
     // Para este ejemplo, vamos a usar una condición simple. Pero puedes expandir esto más tarde.
-    public int RequiredItemCount;    // Ejemplo: Recolecta 10 manzanas
-    public int CurrentItemCount;     // Cuántos ítems ha recolectado el jugador
+    public int RequiredItemCount=0;    // Ejemplo: Recolecta 10 manzanas
+    public int CurrentItemCount=0;     // Cuántos ítems ha recolectado el jugador
     //public GameObject MissionUI;
     public Reward reward;            // Recompensa al completar la misión
-
     [System.Serializable]
     public class Reward
     {
@@ -24,16 +24,6 @@ public class MissionBase : ScriptableObject
         // Aquí puedes añadir otras recompensas si lo necesitas
     }
 
-    // Método para chequear si la misión está completa
-    public bool CheckMissionComplete()
-    {
-        if (CurrentItemCount >= RequiredItemCount)
-        {
-            IsCompleted = true;
-            return true;
-        }
-        return false;
-    }
 
     // Método para recibir la recompensa
     public Reward GetReward()
@@ -43,10 +33,23 @@ public class MissionBase : ScriptableObject
         else
             return null;
     }
-    public void SetMission()
+    public void SetMission(Transform parent)
     {
         MissionPrefab.missionTitle.text = MissionName;
         MissionPrefab.missionDescription.text = MissionText;
-        mis = Instantiate(MissionPrefab.gameObject);
+        MissionPrefab.SetCurrentStatus(CurrentItemCount,RequiredItemCount);
+        mis = Instantiate(MissionPrefab.gameObject,parent,false);
+        if(condition!=null)
+        {
+            condition.goal = RequiredItemCount;
+        }     
+    }
+    public void OnCompleted()
+    {
+        CurrentItemCount = 0;
+    }
+    public void UpdateWhileEvaluation()
+    {
+        CurrentItemCount = condition.currentStatus;
     }
 }
