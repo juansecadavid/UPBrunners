@@ -12,8 +12,6 @@ public class Vendedores : MonoBehaviour
 
     private CorrutinaVendedor corrutinaVendedor;
     [SerializeField] private int cuota;
-    [SerializeField] private float aumento;
-    [SerializeField] private float aumentoScore;
 
 
 
