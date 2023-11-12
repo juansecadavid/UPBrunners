@@ -22,6 +22,6 @@ public class MissionLive : MonoBehaviour
     {
         coinsCollected=coins.Coins;
         score = HighScore.CurrentNumber;
-        manager.CheckMissionsStatus();
+        manager?.CheckMissionsStatus();
     }
 }
