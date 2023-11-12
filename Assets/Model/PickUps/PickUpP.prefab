@@ -44,6 +44,26 @@ PrefabInstance:
       propertyPath: letra
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3822754278091452687, guid: 8d700c4e094443a4c802197a879f91a3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.0064835204
+      objectReference: {fileID: 0}
+    - target: {fileID: 3822754278091452687, guid: 8d700c4e094443a4c802197a879f91a3,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.012718759
+      objectReference: {fileID: 0}
+    - target: {fileID: 3822754278091452687, guid: 8d700c4e094443a4c802197a879f91a3,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.00322178
+      objectReference: {fileID: 0}
+    - target: {fileID: 3822754278091452687, guid: 8d700c4e094443a4c802197a879f91a3,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.004543222
+      objectReference: {fileID: 0}
     - target: {fileID: 7221008078407095864, guid: 8d700c4e094443a4c802197a879f91a3,
         type: 3}
       propertyPath: m_RootOrder
