@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class SkinsBehaviour : MonoBehaviour
 {
-  public int puntuacionRequerida = 100; 
-    public GameObject modelo3D; 
+    public int puntuacionRequerida = 100; 
+    public Transform[] modelo3D; 
     private SkinSelector skinaUsar;
     public GameObject colliderAct;
     private PowerCoins powerCoinsScript;
     public Canvas canvas;
     private Score scoreScript; 
     private Movement movement;
-
+    private MessagesOnPlay message;
     private LoadGame loadGameScript;
 
     public bool[] skinsDesbloqueadas;
@@ -26,10 +26,10 @@ public class SkinsBehaviour : MonoBehaviour
         skinaUsar=FindAnyObjectByType<SkinSelector>();
         movement = FindAnyObjectByType<Movement>();
         colliderAct.SetActive(false);
-        modelo3D.SetActive(false);
+        modelo3D[GameManager.AvailableSkins].gameObject.SetActive(true);
         scoreScript = GameObject.FindObjectOfType<Score>();
         powerCoinsScript = GameObject.FindObjectOfType<PowerCoins>(); // Encuentra el script de puntuación en la escena
-
+        message=FindObjectOfType<MessagesOnPlay>();
     }
 
     void Update()
@@ -38,14 +38,14 @@ public class SkinsBehaviour : MonoBehaviour
         {
             int puntuacionActual = scoreScript.CurrentNumber; 
 
-            if (puntuacionActual > puntuacionRequerida && !botonPresionado)
+            if (puntuacionActual > puntuacionRequerida && !botonPresionado&&GameManager.AvailableSkins<modelo3D.Length)
             {
-                modelo3D.gameObject.SetActive(true);
+                modelo3D[GameManager.AvailableSkins].gameObject.SetActive(true);
                 colliderAct.SetActive(true);
             }
-            else
+            else if(GameManager.AvailableSkins<modelo3D.Length)
             {
-                modelo3D.gameObject.SetActive(false);
+                modelo3D[GameManager.AvailableSkins].gameObject.SetActive(false);
                 colliderAct.SetActive(false);
             }
         }
@@ -57,13 +57,14 @@ public class SkinsBehaviour : MonoBehaviour
         {
             botonPresionado = true;
             powerCoinsScript.Coins -= 1;
-            modelo3D.gameObject.SetActive(false);
+            modelo3D[GameManager.AvailableSkins].gameObject.SetActive(false);
             Time.timeScale = 1.0f;
             canvas.gameObject.SetActive(false);
-            skinaUsar.UnlockSkin(1);
-            
-            loadGameScript.skinsDesbloqueadas[1] = true;
+            GameManager.AvailableSkins++;      
+            SaveSystem.SaveAvailableSkin();
+            skinaUsar.UnlockSkin(GameManager.AvailableSkins);
             movement.CambiarAnimator(skinaUsar.animator);
+            message.ShowMessage("Has desbloqueado una nueva skin!", 2f);
         }
         else
         {
@@ -77,6 +78,6 @@ public class SkinsBehaviour : MonoBehaviour
         botonPresionado = true;
         Time.timeScale = 1.0f;
         canvas.gameObject.SetActive(false);
-        modelo3D.gameObject.SetActive(false);
+        modelo3D[GameManager.AvailableSkins].gameObject.SetActive(false);
     }
 }

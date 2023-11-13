@@ -22,6 +22,7 @@ public class LoadGame : MonoBehaviour
         SaveSystem.LoadVolume();
         SaveSystem.LoadSkin();
         SaveSystem.LoadSchool();
+        SaveSystem.LoadAvailableSkin();
         highScoreText.text = $"HighScore {GameManager.HighScore}";
         skins[GameManager.Skin].SetActive(true);
         name.text = $"{names[GameManager.Skin]}";
@@ -33,6 +34,10 @@ public class LoadGame : MonoBehaviour
         for (int i = 1; i < 4; i++) // Iterar solo 3 veces ya que la primera skin ya está desbloqueada
         {
             skinsDesbloqueadas[i] = false;
+        }
+        for (int i = 0; i <= GameManager.AvailableSkins; i++)
+        {
+            skinsDesbloqueadas[i] = true;
         }
     }
     private void Update()

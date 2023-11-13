@@ -9039,7 +9039,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ce98504a1c0701546af7cbfb1fd5ed46, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bc1a8782f3dc7d24d8ca5cb456421e33, type: 2}
   m_sharedMaterial: {fileID: 8038611328447852115, guid: ce98504a1c0701546af7cbfb1fd5ed46,
     type: 2}
   m_fontSharedMaterials: []
@@ -9104,7 +9104,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1504164949
@@ -12071,6 +12071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23442bee6b9dde549b4b397b24e4e28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: 0
   coinsText: {fileID: 324812110}
 --- !u!114 &2080325715
 MonoBehaviour:
@@ -12089,6 +12090,7 @@ MonoBehaviour:
   - {fileID: 1963892580}
   - {fileID: 829350795}
   - {fileID: 1561277262}
+  animator: {fileID: 0}
 --- !u!1 &2111755377
 GameObject:
   m_ObjectHideFlags: 0

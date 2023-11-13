@@ -14,6 +14,7 @@ public static class GameManager
     private static bool isPaused=false;
     private static bool hasLost=false;
     private static bool isAutoPlaying=false;
+    private static int availableSkins = 0;
     private static List<GameObject> ActiveLetter=new List<GameObject>();
     private static MissionManager mMInstance;
     private static List<GameObject> activeMissions=new List<GameObject>();
@@ -32,6 +33,7 @@ public static class GameManager
     public static bool[] skinsDesbloqueadas = new bool[4];
     public static MissionManager MMInstance { get => mMInstance; set => mMInstance = value; }
     public static List<GameObject> ActiveMissions { get => activeMissions; set => activeMissions = value; }
+    public static int AvailableSkins { get => availableSkins; set => availableSkins = value; }
 }
 
 

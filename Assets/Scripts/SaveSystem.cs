@@ -58,5 +58,18 @@ public static class SaveSystem
         else
             GameManager.School = 0;
     }
+    public static void SaveAvailableSkin()
+    {
+        PlayerPrefs.SetInt("availableSkins", GameManager.AvailableSkins);
+    }
+    public static void LoadAvailableSkin()
+    {
+        if (PlayerPrefs.HasKey("availableSkins"))
+        {
+            GameManager.AvailableSkins = PlayerPrefs.GetInt("availableSkins");
+        }
+        else
+            GameManager.AvailableSkins = 0;
+    }
 
 }
