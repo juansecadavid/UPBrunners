@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class TilePooling : MonoBehaviour
 {
     [SerializeField] private List<GameObject> activeTiles = new List<GameObject>();
+    [SerializeField] private GameObject[] initialTilePrefabs; // Nuevo array para los primeros 20 tiles
     [SerializeField] private GameObject[] tilePrefabs;
     private GameObject[] newtilePrefabs;
     [SerializeField] private int[] tileChain = new int[200];
@@ -55,7 +56,17 @@ public class TilePooling : MonoBehaviour
         tileChain[1] = 1;
         for (int i = 2; i < tileChain.Length; i++)
         {
-            tileChain[i] = GetValidTileIndex(i);
+            if(i<20)
+            {
+                // Usa el array inicial para los primeros 20 tiles
+                //tileChain[i] = GetValidTileIndexFromInitial(i);
+                tileChain[i] = GetValidTileIndex(i);
+            }
+            else
+            {
+                tileChain[i] = GetValidTileIndex(i);
+            }
+            
         }
     }
 
@@ -66,6 +77,17 @@ public class TilePooling : MonoBehaviour
         {
             tileIndex = Random.Range(2, tilePrefabs.Length); // Evitar 0 y 1 después de la inicialización
         } while (IsTileInLastEight(tileIndex, currentChainIndex) || (IsTileSpawner(tileIndex) && HasSpawnerInLastTiles()));
+
+        return tileIndex;
+    }
+
+    int GetValidTileIndexFromInitial(int currentChainIndex)
+    {
+        int tileIndex;
+        do
+        {
+            tileIndex = Random.Range(0, initialTilePrefabs.Length); // Elige de los prefabs iniciales
+        } while (IsTileInLastEight(tileIndex, currentChainIndex)); // Verifica que no se repitan en los últimos 8
 
         return tileIndex;
     }

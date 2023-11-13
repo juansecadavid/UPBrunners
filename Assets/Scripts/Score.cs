@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI scoreText;
-    private float increment = 1;
+    public float increment = 1;
     [SerializeField]// Incremento entre números consecutivos
     private float speed = 10f;        // Velocidad de incremento del contador
 
