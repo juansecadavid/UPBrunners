@@ -9,7 +9,8 @@ public class MissionPrefab : MonoBehaviour
     public TextMeshProUGUI missionTitle;
     [SerializeField]
     public TextMeshProUGUI missionDescription;
-
+    [SerializeField]
+    public TextMeshProUGUI missionCurrentStatus;
     public void SetMissionTitle(string missionTile)
     {
         this.missionTitle.text = missionTile;
@@ -17,5 +18,9 @@ public class MissionPrefab : MonoBehaviour
     public void SetMissionDescription(string missionDescription)
     {
         this.missionDescription.text = missionDescription;
+    }
+    public void SetCurrentStatus(int missionCurrentStatus,int goal)
+    {
+        this.missionCurrentStatus.text = $"{missionCurrentStatus}/{goal}";
     }
 }

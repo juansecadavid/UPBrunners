@@ -15,10 +15,11 @@ MonoBehaviour:
   MissionName: Collect Coins!
   MissionText: Collect 3 coins just in one go!
   IsCompleted: 0
+  condition: {fileID: 11400000, guid: f1f058da213054749bae1f4b2350add8, type: 2}
   MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,
     type: 3}
   mis: {fileID: 0}
-  RequiredItemCount: 0
+  RequiredItemCount: 10
   CurrentItemCount: 0
   reward:
     ExperiencePoints: 0
