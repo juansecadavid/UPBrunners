@@ -316,4 +316,8 @@ public class Movement : MonoBehaviour
         }
         destinoX = carriles;
     }
+    public void CambiarAnimator(Animator animNew)
+    {
+        animator=animNew;
+    }
 }

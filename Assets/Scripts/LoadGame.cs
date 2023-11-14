@@ -13,6 +13,8 @@ public class LoadGame : MonoBehaviour
     private string[] names;
     [SerializeField]
     private TextMeshProUGUI name;
+
+    public bool[] skinsDesbloqueadas; // Arreglo de booleanos para el estado de desbloqueo de las skins
     // Start is called before the first frame update
     void Awake()
     {
@@ -20,43 +22,46 @@ public class LoadGame : MonoBehaviour
         SaveSystem.LoadVolume();
         SaveSystem.LoadSkin();
         SaveSystem.LoadSchool();
+        SaveSystem.LoadAvailableSkin();
         highScoreText.text = $"HighScore {GameManager.HighScore}";
         skins[GameManager.Skin].SetActive(true);
         name.text = $"{names[GameManager.Skin]}";
+
+        skinsDesbloqueadas = new bool[4]; 
+
+        // Desbloquear la primera skin y bloquear las demás
+        skinsDesbloqueadas[0] = true;
+        for (int i = 1; i < 4; i++) // Iterar solo 3 veces ya que la primera skin ya está desbloqueada
+        {
+            skinsDesbloqueadas[i] = false;
+        }
+        for (int i = 0; i <= GameManager.AvailableSkins; i++)
+        {
+            skinsDesbloqueadas[i] = true;
+        }
     }
     private void Update()
     {
         name.text = $"{names[GameManager.Skin]}";
     }
+
     public void RightSkinBtn()
     {
-        
-        if(GameManager.Skin+1<=skins.Length-1)
+        if (skinsDesbloqueadas[(GameManager.Skin + 1) % skins.Length]) 
         {
             skins[GameManager.Skin].SetActive(false);
-            skins[GameManager.Skin + 1].SetActive(true);
-            GameManager.Skin++;
+            GameManager.Skin = (GameManager.Skin + 1) % skins.Length; 
+            skins[GameManager.Skin].SetActive(true);
         }
-        else
-        {
-            skins[GameManager.Skin].SetActive(false);
-            skins[0].SetActive(true);
-            GameManager.Skin = 0;
-        }      
     }
+    
     public void LeftSkinBtn()
     {
-        if(GameManager.Skin==0)
-        {
-            skins[0].SetActive(false);
-            skins[skins.Length-1].SetActive(true);
-            GameManager.Skin = skins.Length - 1;
-        }
-        else
+        if (skinsDesbloqueadas[(GameManager.Skin + skins.Length - 1) % skins.Length]) 
         {
             skins[GameManager.Skin].SetActive(false);
-            skins[GameManager.Skin - 1].SetActive(true);
-            GameManager.Skin--;
+            GameManager.Skin = (GameManager.Skin + skins.Length - 1) % skins.Length; 
+            skins[GameManager.Skin].SetActive(true);
         }
     }
 }

@@ -1803,7 +1803,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4dfc9137c2f132643bc01852ee6d0a47,
         type: 3}
       propertyPath: m_Name
-      value: Skin1
+      value: Skin2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4dfc9137c2f132643bc01852ee6d0a47,
         type: 3}
@@ -2694,12 +2694,17 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ae5040b2278ab3c498519ce947427409,
         type: 3}
       propertyPath: m_Name
-      value: Man
+      value: Skin0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ae5040b2278ab3c498519ce947427409,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae5040b2278ab3c498519ce947427409,
+        type: 3}
+      propertyPath: m_TagString
+      value: Skin0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5040b2278ab3c498519ce947427409, type: 3}
@@ -3287,7 +3292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &497289950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9983,12 +9988,17 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e1585ab02acbb8e4eb84a33f3e307a78,
         type: 3}
       propertyPath: m_Name
-      value: Woman
+      value: Skin1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e1585ab02acbb8e4eb84a33f3e307a78,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1585ab02acbb8e4eb84a33f3e307a78,
+        type: 3}
+      propertyPath: m_TagString
+      value: Skin1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: e1585ab02acbb8e4eb84a33f3e307a78,
         type: 3}
@@ -11729,6 +11739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23442bee6b9dde549b4b397b24e4e28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: 0
   coinsText: {fileID: 324812110}
 --- !u!114 &2080325715
 MonoBehaviour:
@@ -11746,6 +11757,7 @@ MonoBehaviour:
   - {fileID: 401916178}
   - {fileID: 1963892580}
   - {fileID: 712734582}
+  animator: {fileID: 0}
 --- !u!1 &2111755377
 GameObject:
   m_ObjectHideFlags: 0
