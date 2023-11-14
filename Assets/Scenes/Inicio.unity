@@ -1008,7 +1008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -707.0001}
+  m_AnchoredPosition: {x: 0.000061035156, y: -722.0001}
   m_SizeDelta: {x: 671.75, y: 981.19995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288301540
@@ -2398,7 +2398,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nIsabela Calle Perez\nJuan sebastian Cadavid \n"
+  m_text: "\nIsabela Calle Perez\nJuan sebastian Cadavid \nMiguel Angel Mogoll\xF3n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc1a8782f3dc7d24d8ca5cb456421e33, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 70092ca52d4bbda4ba6007f65c4c9ece, type: 2}
@@ -2841,7 +2841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &804445814
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3282,8 +3282,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -587.2}
-  m_SizeDelta: {x: 989.1, y: 898.80005}
+  m_AnchoredPosition: {x: 0, y: -629.89996}
+  m_SizeDelta: {x: 989.1, y: 984.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856796178
 MonoBehaviour:
@@ -4376,7 +4376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000029993, y: -705}
+  m_AnchoredPosition: {x: 0.000029993, y: -767}
   m_SizeDelta: {x: 671.75, y: 162.8209}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1196404659
@@ -4399,9 +4399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    isabela calle perez'
+  m_text: "\nisabela calle perez\nYeison Andres Mu\xF1oz"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc1a8782f3dc7d24d8ca5cb456421e33, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 70092ca52d4bbda4ba6007f65c4c9ece, type: 2}
@@ -6509,7 +6507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -6, y: -623}
+  m_AnchoredPosition: {x: -6, y: -710}
   m_SizeDelta: {x: 659.8, y: 113.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1632549438
@@ -7046,7 +7044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000031042, y: -790}
+  m_AnchoredPosition: {x: 0.000031042, y: -908}
   m_SizeDelta: {x: 671.75, y: 116.0565}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795306027
@@ -7181,7 +7179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0012148, y: -549}
+  m_AnchoredPosition: {x: -0.0012148, y: -564}
   m_SizeDelta: {x: 671.75, y: 160.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799800283
@@ -7204,9 +7202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    Juan sebastian Cadavid '
+  m_text: "\nJuan sebastian Cadavid \nDaniel Arango Echeverri\nSebastian Franco"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc1a8782f3dc7d24d8ca5cb456421e33, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 70092ca52d4bbda4ba6007f65c4c9ece, type: 2}
@@ -7771,7 +7767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000031043, y: -861}
+  m_AnchoredPosition: {x: 0.000031043, y: -950.99994}
   m_SizeDelta: {x: 671.75, y: 98.6657}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993316799

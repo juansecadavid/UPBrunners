@@ -19,8 +19,8 @@ MonoBehaviour:
   MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,
     type: 3}
   mis: {fileID: 0}
-  RequiredItemCount: 5000
-  CurrentItemCount: 0
+  RequiredItemCount: 10000
+  CurrentItemCount: 6065
   reward:
     ExperiencePoints: 0
     Gold: 0
