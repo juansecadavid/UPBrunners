@@ -1533,6 +1533,7 @@ MonoBehaviour:
   pauseTimer: {fileID: 611304937}
   player: {fileID: 2080325700}
   canvasPowerBon: {fileID: 452605259}
+  Player: {fileID: 2080325705}
 --- !u!1 &265103492
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,11 +3232,16 @@ MonoBehaviour:
   - {fileID: 6542959580980717494, guid: dca6cefd82567f84f996cb63760c8ba9, type: 3}
   - {fileID: 6542959580980717494, guid: 43504881e332074498ad05f88f8c9874, type: 3}
   - {fileID: 6542959580980717494, guid: 1fbf0064c04f79540b983eab8e5405f8, type: 3}
-  - {fileID: 6542959580980717494, guid: cc0da9fa04f8cd346bbe75908f525235, type: 3}
+  - {fileID: 6542959580980717494, guid: 4875b53d832a2a9479989dac33a15241, type: 3}
   - {fileID: 6542959580980717494, guid: 4348d0dfaf17c6643a26ff8893cc6b25, type: 3}
   - {fileID: 6542959580980717494, guid: 668364eee0521814ea520d316816df34, type: 3}
   - {fileID: 6542959580980717494, guid: 64547c3f2c9d6af4d9b7dcd59f02eef2, type: 3}
   - {fileID: 6542959580980717494, guid: cfd369f00b035424dbee377979116523, type: 3}
+  - {fileID: 6542959580980717494, guid: 31192b847017b754bb3e62ca8f74159a, type: 3}
+  - {fileID: 6542959580980717494, guid: f7ae0b95a7e8697439835d5d4930d6f2, type: 3}
+  - {fileID: 6542959580980717494, guid: ea1b54193401f884ab894feb696e9e9f, type: 3}
+  - {fileID: 6542959580980717494, guid: 14474ce4babe12448813c21d52605c92, type: 3}
+  - {fileID: 6542959580980717494, guid: cc0da9fa04f8cd346bbe75908f525235, type: 3}
   - {fileID: 6542959580980717494, guid: 4310768b227b04d4d9437b1ba73f7c2b, type: 3}
   - {fileID: 6328286367542219218, guid: 619e63ed5f18f364aa1ade0217d54b0f, type: 3}
   - {fileID: 6643631505172537868, guid: 8f48757dd1721f9469c77d8e400afb82, type: 3}
@@ -6752,6 +6758,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 139a3097c055096499f9890b47c47ea2, type: 3}
+--- !u!1 &1156690487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1156690488}
+  - component: {fileID: 1156690489}
+  m_Layer: 0
+  m_Name: Corroutine!
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1156690488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156690487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.674407, y: -7.8828087, z: 2840.6035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1156690489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156690487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73362542c639ceb4ea6b209dd8d2b96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuota: 5
+  aumento: 7
+  aumentoScore: 7
 --- !u!1 &1163965903
 GameObject:
   m_ObjectHideFlags: 0
@@ -8265,7 +8318,7 @@ MonoBehaviour:
   panelDefLose: {fileID: 1564728885}
   player: {fileID: 2080325700}
   finalScore: {fileID: 123089058}
-  valueToRespawn: 30
+  valueToRespawn: 50
   videoPlayer: {fileID: 729410703}
   videoClips:
   - {fileID: 32900000, guid: a6e9532a79e36f544b1f9119d341044a, type: 3}
@@ -11538,7 +11591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Puedes obtener una segunda oportunidad por 30 monedas!
+  m_text: Puedes obtener una segunda oportunidad por 50 monedas!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e1c6969d29ba0834887e7d55eaff78d4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: abe56b7563dce594e956687d0c37bbaa, type: 2}

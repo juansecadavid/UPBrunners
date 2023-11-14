@@ -287,6 +287,7 @@ public class Movement : MonoBehaviour
     {
         Vector3 newPos = transform.position;
         newPos.z = transform.position.z - 1;
+        newPos.y = 1.5f; ;
         transform.position = newPos;
         animator.SetBool("hasLost", true);
     }

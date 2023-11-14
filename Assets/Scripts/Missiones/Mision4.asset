@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dae87ae298ae284da97f7fce25c243d, type: 3}
   m_Name: Mision4
   m_EditorClassIdentifier: 
-  MissionName: Mision 4
-  MissionText: Mision prueba 4
+  MissionName: Nuevo Personaje
+  MissionText: Alcanza 4.000 puntos y desbloquea un nuevo personaje jugable!
   IsCompleted: 0
+  condition: {fileID: 11400000, guid: d90de61a632aff746bc1a3d1e3202a93, type: 2}
   MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,
     type: 3}
   mis: {fileID: 0}
-  RequiredItemCount: 0
+  RequiredItemCount: 1
   CurrentItemCount: 0
   reward:
     ExperiencePoints: 0

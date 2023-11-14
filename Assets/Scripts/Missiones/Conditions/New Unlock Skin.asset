@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f0dc474c58d7b842b067d8c9f76e1cb, type: 3}
-  m_Name: ReachHighScore
+  m_Script: {fileID: 11500000, guid: 20f2288cec63978499f10ff6b4360f3c, type: 3}
+  m_Name: New Unlock Skin
   m_EditorClassIdentifier: 
-  goal: 5000
+  goal: 1
   currentStatus: 0

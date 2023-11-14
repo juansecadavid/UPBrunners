@@ -1268,13 +1268,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0a7cb2c6095f74b8bd40e7173b2247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntuacionRequerida: 500
+  puntuacionRequerida: 4000
   modelo3D:
   - {fileID: 8270593015999097022}
   - {fileID: 3093657017719113513}
   - {fileID: 2099982308149319514}
   colliderAct: {fileID: 2305872424958249152}
   canvas: {fileID: 5557197321101273507}
+  SkinValue: 15
   skinsDesbloqueadas: 
 --- !u!1 &6643631505172537868
 GameObject:

@@ -24,23 +24,20 @@ public class PauseSystem : MonoBehaviour
     private Score score;
     private VolumeSlider volume;
     private SoundManager soundManager;
+    [SerializeField]
+    private Transform Player;
     // Start is called before the first frame update
     void Start()
     {
         skinSelector = FindObjectOfType<SkinSelector>();
-        animator = skinSelector.Skins[GameManager.Skin].GetComponent<Animator>();
+        //animator = skinSelector.Skins[GameManager.Skin].GetComponent<Animator>();
         score=FindObjectOfType<Score>();
         volume = FindObjectOfType<VolumeSlider>();
         soundManager = FindObjectOfType<SoundManager>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Resume()
     {
+        animator=player.GetComponentInChildren<Animator>();
         if (isPaused)
         {
             panelPause.SetActive(false);

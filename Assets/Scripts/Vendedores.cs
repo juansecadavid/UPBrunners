@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance.VisualScripting;
 
@@ -20,7 +19,7 @@ public class Vendedores : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
         levelManager = FindObjectOfType<LevelManager>();
         ventas = FindObjectOfType<MessagesOnPlay>();
-        corrutinaVendedor = FindAnyObjectByType<CorrutinaVendedor>();
+        corrutinaVendedor=FindObjectOfType<CorrutinaVendedor>();
 
         //StartCoroutine(Animate());
     }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad7e35f364048e4b96c3042fc5fefbf, type: 3}
   m_Name: CollectCoins
   m_EditorClassIdentifier: 
-  goal: 0
-  coinsToCollect: 10
+  goal: 75
+  currentStatus: 0

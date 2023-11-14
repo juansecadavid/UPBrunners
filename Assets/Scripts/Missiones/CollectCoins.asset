@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dae87ae298ae284da97f7fce25c243d, type: 3}
   m_Name: CollectCoins
   m_EditorClassIdentifier: 
-  MissionName: Collect Coins!
-  MissionText: Collect 3 coins just in one go!
+  MissionName: Agarra Monedas!
+  MissionText: Recolecta 75 monedas
   IsCompleted: 0
   condition: {fileID: 11400000, guid: f1f058da213054749bae1f4b2350add8, type: 2}
   MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,
     type: 3}
   mis: {fileID: 0}
-  RequiredItemCount: 10
+  RequiredItemCount: 75
   CurrentItemCount: 0
   reward:
     ExperiencePoints: 0
