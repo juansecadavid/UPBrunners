@@ -1139,6 +1139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionUI: {fileID: 0}
   missionList: []
+  actualMissionObjects: []
   activeMissions: []
   availableMissions:
   - {fileID: 11400000, guid: 325cfb40fcea0f9428317ee4a61a5ccf, type: 2}
@@ -1146,6 +1147,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b66a739189c3d1b4192efd71544c3348, type: 2}
   - {fileID: 11400000, guid: f0bb1fdc94196e54899cc0737d0c1bb0, type: 2}
   - {fileID: 11400000, guid: 483855da0728b7f428a4eea55fb8714b, type: 2}
+  missionLive: {fileID: 0}
+  messageOnPlay: {fileID: 0}
 --- !u!4 &291152040
 Transform:
   m_ObjectHideFlags: 0
@@ -5912,6 +5915,7 @@ MonoBehaviour:
   - Santi
   - Sofi
   name: {fileID: 1370594389}
+  skinsDesbloqueadas: 
 --- !u!4 &1539141440
 Transform:
   m_ObjectHideFlags: 0

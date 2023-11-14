@@ -163,6 +163,7 @@ public class TilePooling : MonoBehaviour
             else
             {
                 tileToActive++; // Saltar este tile y probar con el siguiente
+                Debug.Log("Yo?");
             }
         }
     }
