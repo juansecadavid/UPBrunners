@@ -21,7 +21,7 @@ public class LoadingWindow : MonoBehaviour
     private void Awake()
     {
         player = GetComponent<VideoPlayer>();
-        player.clip = videoClips[Random.Range(0, videoClips.Length)];
+        player.clip = videoClips[Random.Range(0,1)];
         Debug.Log($"{videoClips.Length}");
     }
     void Start()
