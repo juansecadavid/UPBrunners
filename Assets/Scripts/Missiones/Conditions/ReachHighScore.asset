@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0dc474c58d7b842b067d8c9f76e1cb, type: 3}
   m_Name: ReachHighScore
   m_EditorClassIdentifier: 
-  goal: 5000
-  currentStatus: 0
+  goal: 10000
+  currentStatus: 6065
