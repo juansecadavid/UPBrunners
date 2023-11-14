@@ -9,6 +9,6 @@ public class ReachScoreConditionSO : MissionConditionSO
     public override bool Evaluate(MissionLive missionLive)
     {
         currentStatus = missionLive.score;
-        return missionLive.score >= goal;
+        return currentStatus >= goal;
     }
 }

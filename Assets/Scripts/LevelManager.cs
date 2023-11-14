@@ -6,6 +6,7 @@ using UnityEngine.Video;
 
 public class LevelManager : MonoBehaviour
 {
+    public int skinsCollected=0;
     [SerializeField]
     private GameObject panelFirstLose;
     [SerializeField]

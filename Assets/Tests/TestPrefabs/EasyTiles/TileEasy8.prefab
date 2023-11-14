@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 4004806837527375478}
   m_Layer: 0
   m_Name: TileEasy8
-  m_TagString: Spawner
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

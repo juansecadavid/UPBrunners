@@ -10,10 +10,14 @@ public class MissionLive : MonoBehaviour
     Score HighScore;
     public int coinsCollected;
     public int score;
+    public int skinsCollected;
     MissionManager manager;
+    LevelManager levelManager;
+    
     // Start is called before the first frame update
     void Start()
     {
+        levelManager=FindAnyObjectByType<LevelManager>();
         manager=FindAnyObjectByType<MissionManager>();
     }
 
@@ -22,6 +26,7 @@ public class MissionLive : MonoBehaviour
     {
         coinsCollected=coins.Coins;
         score = HighScore.CurrentNumber;
+        skinsCollected = levelManager.skinsCollected;
         manager?.CheckMissionsStatus();
     }
 }

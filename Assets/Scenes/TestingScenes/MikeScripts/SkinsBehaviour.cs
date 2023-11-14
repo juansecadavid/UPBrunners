@@ -15,9 +15,10 @@ public class SkinsBehaviour : MonoBehaviour
     private Movement movement;
     private MessagesOnPlay message;
     private LoadGame loadGameScript;
-
+    [SerializeField]
+    private int SkinValue;
     public bool[] skinsDesbloqueadas;
-
+    LevelManager levelManager;
     private bool botonPresionado = false;
 
     void Start()
@@ -30,6 +31,7 @@ public class SkinsBehaviour : MonoBehaviour
         scoreScript = GameObject.FindObjectOfType<Score>();
         powerCoinsScript = GameObject.FindObjectOfType<PowerCoins>(); // Encuentra el script de puntuación en la escena
         message=FindObjectOfType<MessagesOnPlay>();
+        levelManager=FindAnyObjectByType<LevelManager>();
     }
 
     void Update()
@@ -53,12 +55,13 @@ public class SkinsBehaviour : MonoBehaviour
 
     public void AdquirirSkin()
     {
-        if (powerCoinsScript.Coins >= 1)
+        if (powerCoinsScript.Coins >= SkinValue)
         {
             botonPresionado = true;
-            powerCoinsScript.Coins -= 1;
+            powerCoinsScript.Coins -= SkinValue;
             modelo3D[GameManager.AvailableSkins].gameObject.SetActive(false);
             Time.timeScale = 1.0f;
+            levelManager.skinsCollected = 1;
             canvas.gameObject.SetActive(false);
             GameManager.AvailableSkins++;      
             SaveSystem.SaveAvailableSkin();
@@ -70,6 +73,9 @@ public class SkinsBehaviour : MonoBehaviour
         {
             // El jugador no tiene suficientes monedas para adquirir la skin
             // Puedes agregar un mensaje o alguna otra lógica aquí si deseas.
+            Time.timeScale = 1.0f;
+            canvas.gameObject.SetActive(false);
+            message.ShowMessage("No tienes suficientes monedas!", 3f);
         }
     }
 
