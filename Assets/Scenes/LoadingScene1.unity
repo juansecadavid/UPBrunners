@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoClips:
+  - {fileID: 32900000, guid: 8bcc0baa765e0c743b31937f51720d49, type: 3}
   - {fileID: 32900000, guid: a6e9532a79e36f544b1f9119d341044a, type: 3}
   - {fileID: 32900000, guid: 5562d0a7b4131d148a8382921977a5c0, type: 3}
   - {fileID: 32900000, guid: 80c2e413f20052d4680acfd9a8b9f60c, type: 3}
