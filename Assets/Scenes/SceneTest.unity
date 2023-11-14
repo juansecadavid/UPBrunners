@@ -8265,7 +8265,7 @@ MonoBehaviour:
   panelDefLose: {fileID: 1564728885}
   player: {fileID: 2080325700}
   finalScore: {fileID: 123089058}
-  valueToRespawn: 20
+  valueToRespawn: 30
   videoPlayer: {fileID: 729410703}
   videoClips:
   - {fileID: 32900000, guid: a6e9532a79e36f544b1f9119d341044a, type: 3}
@@ -11538,7 +11538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Puedes obtener una segunda oportunidad por 20 monedas!
+  m_text: Puedes obtener una segunda oportunidad por 30 monedas!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e1c6969d29ba0834887e7d55eaff78d4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: abe56b7563dce594e956687d0c37bbaa, type: 2}
