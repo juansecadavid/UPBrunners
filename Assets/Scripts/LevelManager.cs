@@ -37,10 +37,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        if (GameManager.ActiveLetter1.Count < 0)
-        {
-            GameManager.ActiveLetter1.RemoveAt(0);
-        }
+        GameManager.ActiveLetter1.Clear();
         GameManager.Letras = 0;
     }
     void Start()

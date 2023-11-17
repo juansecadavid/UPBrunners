@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CollectCoins
   m_EditorClassIdentifier: 
   MissionName: Agarra Monedas!
-  MissionText: Recolecta 75 monedas
+  MissionText: Recolecta 75 monedas en una sola partida
   IsCompleted: 0
   condition: {fileID: 11400000, guid: f1f058da213054749bae1f4b2350add8, type: 2}
   MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,

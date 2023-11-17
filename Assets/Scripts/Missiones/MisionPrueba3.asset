@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dae87ae298ae284da97f7fce25c243d, type: 3}
   m_Name: MisionPrueba3
   m_EditorClassIdentifier: 
-  MissionName: mission3
-  MissionText: MisionPrueba3
+  MissionName: "\xA1Proximamente!"
+  MissionText: "Esta misi\xF3n estar\xE1 disponible proximamente"
   IsCompleted: 0
+  condition: {fileID: 0}
   MissionPrefab: {fileID: 2829063467077731827, guid: e83c8c88eefce884890f5f1895072fa7,
     type: 3}
   mis: {fileID: 0}

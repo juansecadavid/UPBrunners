@@ -44,6 +44,7 @@ public class PowerManager : MonoBehaviour
         updSpd = FindObjectOfType<UpdateSpped>();
         skin = FindObjectOfType<SkinSelector>();
         animator = skin.Skins[GameManager.Skin].GetComponent<Animator>();
+        GameManager.IsPaused= false;
     }
     void Update()
     {
