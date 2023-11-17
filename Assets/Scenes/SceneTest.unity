@@ -423,7 +423,7 @@ RectTransform:
   - {fileID: 1736336152}
   - {fileID: 291230712}
   m_Father: {fileID: 237488966}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -481,7 +481,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e279c59f7cfa1498880ce421c756d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsNeeded: 4
+  coinsNeeded: 15
   powerCoins: {fileID: 2080325714}
 --- !u!1 &96286633
 GameObject:
@@ -668,7 +668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000076294, y: -460.90002}
+  m_AnchoredPosition: {x: 0, y: -492}
   m_SizeDelta: {x: 681.1, y: 196.30005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &101092471
@@ -1012,7 +1012,7 @@ RectTransform:
   - {fileID: 1282385325}
   - {fileID: 817253119}
   m_Father: {fileID: 237488966}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1158,7 +1158,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 237488966}
-  m_RootOrder: 13
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1496,6 +1496,8 @@ RectTransform:
   - {fileID: 1338675819}
   - {fileID: 2041500765}
   - {fileID: 611304939}
+  - {fileID: 324812109}
+  - {fileID: 147992030}
   - {fileID: 66512368}
   - {fileID: 998901742}
   - {fileID: 1087084469}
@@ -1504,8 +1506,6 @@ RectTransform:
   - {fileID: 932046756}
   - {fileID: 2125830732}
   - {fileID: 388816444}
-  - {fileID: 324812109}
-  - {fileID: 147992030}
   - {fileID: 1564728886}
   - {fileID: 1504164947}
   m_Father: {fileID: 0}
@@ -1942,7 +1942,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 237488966}
-  m_RootOrder: 12
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -2466,7 +2466,7 @@ RectTransform:
   - {fileID: 1482344131}
   - {fileID: 327176054}
   m_Father: {fileID: 237488966}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4028,7 +4028,7 @@ MonoBehaviour:
   m_text: '
 
 
-    5'
+    10'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce98504a1c0701546af7cbfb1fd5ed46, type: 2}
   m_sharedMaterial: {fileID: 8038611328447852115, guid: ce98504a1c0701546af7cbfb1fd5ed46,
@@ -5582,7 +5582,7 @@ RectTransform:
   - {fileID: 1163965904}
   - {fileID: 868687013}
   m_Father: {fileID: 237488966}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5799,7 +5799,7 @@ RectTransform:
   - {fileID: 691505801}
   - {fileID: 1847459835}
   m_Father: {fileID: 237488966}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -5818,7 +5818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e279c59f7cfa1498880ce421c756d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsNeeded: 5
+  coinsNeeded: 10
   powerCoins: {fileID: 2080325714}
 --- !u!114 &998901744
 MonoBehaviour:
@@ -5871,7 +5871,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6299,7 +6299,7 @@ RectTransform:
   - {fileID: 686897525}
   - {fileID: 1268279756}
   m_Father: {fileID: 237488966}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -9455,7 +9455,7 @@ MonoBehaviour:
   m_text: '
 
 
-    3'
+    20'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce98504a1c0701546af7cbfb1fd5ed46, type: 2}
   m_sharedMaterial: {fileID: 8038611328447852115, guid: ce98504a1c0701546af7cbfb1fd5ed46,
@@ -9755,7 +9755,7 @@ RectTransform:
   - {fileID: 1557280139}
   - {fileID: 1907132234}
   m_Father: {fileID: 237488966}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -9774,7 +9774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e279c59f7cfa1498880ce421c756d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsNeeded: 3
+  coinsNeeded: 20
   powerCoins: {fileID: 2080325714}
 --- !u!114 &1626949333
 MonoBehaviour:
@@ -9827,7 +9827,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 20
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10451,7 +10451,7 @@ MonoBehaviour:
   m_text: '
 
 
-    4'
+    15'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce98504a1c0701546af7cbfb1fd5ed46, type: 2}
   m_sharedMaterial: {fileID: 8038611328447852115, guid: ce98504a1c0701546af7cbfb1fd5ed46,
@@ -11097,7 +11097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: 0.2}
+  m_AnchoredPosition: {x: 2, y: -8.4}
   m_SizeDelta: {x: 200, y: 20.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921701007
@@ -11122,9 +11122,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sonido
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e1c6969d29ba0834887e7d55eaff78d4, type: 2}
-  m_sharedMaterial: {fileID: 5815458899307431664, guid: e1c6969d29ba0834887e7d55eaff78d4,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bc1a8782f3dc7d24d8ca5cb456421e33, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 70092ca52d4bbda4ba6007f65c4c9ece, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11907,7 +11906,7 @@ RectTransform:
   m_GameObject: {fileID: 2052802289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -75}
-  m_LocalScale: {x: 4.8, y: 4.8, z: 5.003114}
+  m_LocalScale: {x: 9, y: 9, z: 5.003114}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 932046756}
@@ -11915,7 +11914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 550.2}
+  m_AnchoredPosition: {x: 0, y: 457.2}
   m_SizeDelta: {x: 75.3, y: 75.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2052802291
@@ -12317,7 +12316,7 @@ RectTransform:
   - {fileID: 475834183}
   - {fileID: 918370582}
   m_Father: {fileID: 237488966}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
