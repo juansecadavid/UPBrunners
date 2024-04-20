@@ -10,6 +10,6 @@ public class ButtonLogOut : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         FirebaseAuth.DefaultInstance.SignOut();
-        SceneManager.LoadScene("FireBaseGame");
+        SceneManager.LoadScene("AuthScene");
     }
 }

@@ -17,7 +17,7 @@ public class LoadSceneWhenAuthenticated : MonoBehaviour
     {
         if (FirebaseAuth.DefaultInstance.CurrentUser != null)
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Inicio");
         }
     }
     // Update is called once per frame
