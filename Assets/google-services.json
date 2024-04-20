@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "166963252361",
+    "firebase_url": "https://tranquil-door-331522-default-rtdb.firebaseio.com",
+    "project_id": "tranquil-door-331522",
+    "storage_bucket": "tranquil-door-331522.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166963252361:android:36d1327019ee7caec10a58",
+        "android_client_info": {
+          "package_name": "com.Leveloop.UPBrunners"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEhP5lm50AIm7xdHe_R6iV51auKvx-msw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166963252361:android:50ad9ec2847ae0acc10a58",
+        "android_client_info": {
+          "package_name": "com.juanse.juansegame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEhP5lm50AIm7xdHe_R6iV51auKvx-msw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
