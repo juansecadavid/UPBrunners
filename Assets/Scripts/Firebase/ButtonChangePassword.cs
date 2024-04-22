@@ -10,7 +10,7 @@ public class ButtonChangePassword : MonoBehaviour
 {
     [SerializeField]
     private Button _changePassBtn;
-
+    public AuthErrorMessage _authErrorMessage;
     private DatabaseReference mDataBaseRef;
     
     private void Reset()
@@ -47,8 +47,7 @@ public class ButtonChangePassword : MonoBehaviour
         }
         else
         {
-
-
+            _authErrorMessage.ShowErrorMessage("Se envió e correo para cambio de contraseña");
             Debug.LogFormat($"Se envió e correo para cambio dde contraseña");
 
         }

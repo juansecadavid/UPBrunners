@@ -9,9 +9,7 @@ using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI[] best3Scores;
-    [SerializeField]
-    private GameObject panel;
+    [SerializeField] private TextMeshProUGUI[] best5Scores;
     private int currentIndex=0;
 
     public void GetUsersHighScore()
@@ -36,13 +34,13 @@ public class Leaderboard : MonoBehaviour
                             int score = int.Parse(childSnapshot.Child("score").Value.ToString());
                             sortedUsers[score] = username;
                         }
-                        panel.gameObject.SetActive(true);
+                        //panel.gameObject.SetActive(true);
                         foreach (var kvp in sortedUsers.Reverse())
                         {
-                            Debug.Log($"Mi nombre es: {kvp.Value} y mi score es {kvp.Key}");
-                            if (currentIndex < 3)
+                            Debug.Log($"{kvp.Value} y mi score es {kvp.Key}");
+                            if (currentIndex < 5)
                             {
-                                best3Scores[currentIndex].text = $"Mi nombre es: {kvp.Value} y mi score es {kvp.Key}\"";
+                                best5Scores[currentIndex].text = $"{kvp.Value}: {kvp.Key}\"";
                                 currentIndex++;
                             }
                         }

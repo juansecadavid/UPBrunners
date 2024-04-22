@@ -14,7 +14,8 @@ public class ButtonSignUp : MonoBehaviour
     private Button _registerBtn;
 
     private DatabaseReference mDataBaseRef;
-    
+
+    public AuthErrorMessage _authErrorMessage;
     private void Reset()
     {
         _registerBtn = GetComponent<Button>();
@@ -24,6 +25,7 @@ public class ButtonSignUp : MonoBehaviour
     {
         _registerBtn.onClick.AddListener(HandleRegisterButtonClicked);
         mDataBaseRef = FirebaseDatabase.DefaultInstance.RootReference;
+        //_authErrorMessage = FindAnyObjectByType<AuthErrorMessage>();
     }
 
     
@@ -32,9 +34,17 @@ public class ButtonSignUp : MonoBehaviour
     {
         string email = GameObject.Find("InputFieldEmail").GetComponent<TMP_InputField>().text;
         string password = GameObject.Find("InputFieldPassword").GetComponent<TMP_InputField>().text;
-        if (GameObject.Find("InputFieldUsername").GetComponent<TMP_InputField>().text != "")
+        if (GameObject.Find("InputFieldUsername").GetComponent<TMP_InputField>().text != ""&& GameObject.Find("InputFieldUsername").GetComponent<TMP_InputField>().text.Length>5)
         {
             StartCoroutine(RegisterUser(email, password));
+        }
+        else if(GameObject.Find("InputFieldUsername").GetComponent<TMP_InputField>().text.Length>5)
+        {
+            _authErrorMessage.ShowErrorMessage("El username debe contener mas de 5 letras");
+        }
+        else
+        {
+            _authErrorMessage.ShowErrorMessage("Debes poner un username");
         }
     }
 
@@ -49,7 +59,19 @@ public class ButtonSignUp : MonoBehaviour
         }
         else if (registerTask.IsFaulted)
         {
-            Debug.Log("Encountered an error" + registerTask.Exception);
+            FirebaseException firebaseEx = registerTask.Exception.GetBaseException() as FirebaseException;
+            AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
+
+            string message = "Encountered an error: " + registerTask.Exception;
+            if (errorCode == AuthError.EmailAlreadyInUse)
+            {
+                _authErrorMessage.ShowErrorMessage("El correo electrónico ya está en uso");
+            }
+            else if (errorCode == AuthError.WeakPassword)
+            {
+                // Este es el código de error cuando la contraseña es demasiado débil/shorta
+                _authErrorMessage.ShowErrorMessage("La contraseña es demasiado débil o corta");
+            }
         }
         else
         {
