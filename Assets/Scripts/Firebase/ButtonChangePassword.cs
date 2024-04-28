@@ -47,7 +47,7 @@ public class ButtonChangePassword : MonoBehaviour
         }
         else
         {
-            _authErrorMessage.ShowErrorMessage("Se envió e correo para cambio de contraseña");
+            _authErrorMessage.ShowErrorMessage("Se envió el correo para cambio de contraseña");
             Debug.LogFormat($"Se envió e correo para cambio dde contraseña");
 
         }

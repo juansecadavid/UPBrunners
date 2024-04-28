@@ -18,6 +18,11 @@ public class LoadGame : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI name;
 
+    [SerializeField] private FirebaseManager _firebaseManager;
+
+    [SerializeField] private TextMeshProUGUI userId;
+    [SerializeField] private TextMeshProUGUI userId2;
+
     public bool[] skinsDesbloqueadas; // Arreglo de booleanos para el estado de desbloqueo de las skins
     // Start is called before the first frame update
     void Awake()
@@ -48,6 +53,9 @@ public class LoadGame : MonoBehaviour
     private void Start()
     {
         FirebaseDatabase.DefaultInstance.GetReference($"users/{FirebaseAuth.DefaultInstance.CurrentUser.UserId}/score").ValueChanged += HandleValueChanged;
+        userId.text = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        userId2.text = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        //_firebaseManager.FetchFriendRequests();
     }
 
     private void Update()

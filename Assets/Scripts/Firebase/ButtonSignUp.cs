@@ -81,6 +81,10 @@ public class ButtonSignUp : MonoBehaviour
             string name = GameObject.Find("InputFieldUsername").GetComponent<TMP_InputField>().text;
             mDataBaseRef.Child("users").Child(result.User.UserId).Child("username").SetValueAsync(name);
             mDataBaseRef.Child("users").Child(result.User.UserId).Child("score").SetValueAsync(0);
+            mDataBaseRef.Child("users").Child(result.User.UserId).Child("friends").SetValueAsync("");  // Lista de amigos inicialmente vacía
+            mDataBaseRef.Child("users").Child(result.User.UserId).Child("friendRequests").Child("sent").SetValueAsync("");  // Solicitudes de amistad enviadas, inicialmente vacío
+            mDataBaseRef.Child("users").Child(result.User.UserId).Child("friendRequests").Child("received").SetValueAsync("");  // Solicitudes de amistad recibidas, inicialmente vacío
+            mDataBaseRef.Child("users").Child(result.User.UserId).Child("Online").SetValueAsync(false);
         }
     }
 }
