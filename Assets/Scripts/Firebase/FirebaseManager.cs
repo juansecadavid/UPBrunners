@@ -346,6 +346,7 @@ public class FirebaseManager : MonoBehaviour
             FetchFriendRequests();
             FetchFriends();
             DatabaseReference presenceRef = FirebaseDatabase.DefaultInstance.GetReference("users/" + FirebaseAuth.DefaultInstance.CurrentUser.UserId + "/online");
+            presenceRef.OnDisconnect().SetValue(false);
             presenceRef.SetValueAsync(true);
         }
         if (userNotFound)

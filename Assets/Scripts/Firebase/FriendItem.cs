@@ -11,31 +11,28 @@ public class FriendItem : MonoBehaviour
 {
     private FirebaseManager _firebaseManager;
     public TextMeshProUGUI usernameText;
+    public TextMeshProUGUI scoreText;
     public Image image;
-    private string userId;
+    public string userId;
 
-    public void SetUp(string username, string userId, GameObject firebaseM)
+    public void SetUp(string username, string Id, GameObject firebaseM)
     {
         usernameText.text = username;
-        this.userId = userId;
+        userId = Id;
         _firebaseManager = firebaseM.GetComponent<FirebaseManager>();
     }
 
     private void Start()
     {
-        ListeningToFriendStatus();
+        FirebaseDatabase.DefaultInstance.GetReference("users/" + userId + "/online").ValueChanged += HandleOnlineStatusChanged;
+        FirebaseDatabase.DefaultInstance.GetReference("users/" + userId + "/score").ValueChanged += HandleScoreChange;
     }
-
-    void ListeningToFriendStatus()
-    {
-        DatabaseReference onlineRef = FirebaseDatabase.DefaultInstance.GetReference("users/" + userId + "/online");
-        onlineRef.ValueChanged += HandleOnlineStatusChanged;
-    }
+    
     void HandleOnlineStatusChanged(object sender, ValueChangedEventArgs args)
     {
         if (args.DatabaseError != null)
         {
-            Debug.LogError(args.DatabaseError.Message);
+            Debug.Log(args.DatabaseError.Message);
             return;
         }
 
@@ -44,19 +41,38 @@ public class FriendItem : MonoBehaviour
         bool isOnline = (bool)args.Snapshot.Value;
         string friendId = args.Snapshot.Key;
 
+        
         if (isOnline)
         {
-            image.color=Color.green;
+            if(image!=null)
+                image.color=Color.green;
         }
         else
         {
-            image.color=Color.red;
+            if(image!=null)
+                image.color=Color.red;
         }
+        Debug.Log("No tiré error");
     }
 
+    void HandleScoreChange(object sender, ValueChangedEventArgs args)
+    {
+        if (args.DatabaseError != null)
+        {
+            Debug.Log(args.DatabaseError.Message);
+            return;
+        }
+        
+        int score = Convert.ToInt32(args.Snapshot.Value);
+        string friendId = args.Snapshot.Key;
+
+
+        if (scoreText != null)
+            scoreText.text = $"{score}";
+    }
     private void OnDestroy()
     {
-        DatabaseReference onlineRef = FirebaseDatabase.DefaultInstance.GetReference("users/" + userId + "/online");
-        onlineRef.ValueChanged -= HandleOnlineStatusChanged;
+        FirebaseDatabase.DefaultInstance.GetReference("users/" + userId + "/online").ValueChanged -= HandleOnlineStatusChanged;
+        FirebaseDatabase.DefaultInstance.GetReference("users/" + userId + "/score").ValueChanged -= HandleScoreChange;
     }
 }
