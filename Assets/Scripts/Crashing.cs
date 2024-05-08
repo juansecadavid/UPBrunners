@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Firebase.Auth;
+using Firebase.Database;
+using Firebase.Extensions;
 using UnityEngine;
 
 public class Crashing : MonoBehaviour
@@ -32,9 +36,51 @@ public class Crashing : MonoBehaviour
         if (score.CurrentNumber >= GameManager.HighScore)
         {
             GameManager.HighScore = score.CurrentNumber;
-            SaveSystem.SaveGame();
+            //SaveSystem.SaveGame();
+            UpdateScoreIfHigher(FirebaseAuth.DefaultInstance.CurrentUser.UserId,score.CurrentNumber);
         }
         LevelManager levelMan = FindObjectOfType<LevelManager>();
         levelMan.Lose();
+    }
+    public void UpdateScoreIfHigher(string userId, int newScore)
+    {
+        DatabaseReference userRef = FirebaseDatabase.DefaultInstance.GetReference("users").Child(userId);
+
+        userRef.GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError(task.Exception);
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+            
+                if (snapshot.Exists && snapshot.HasChild("score"))
+                {
+                    int currentScore = Convert.ToInt32(snapshot.Child("score").Value);
+                
+                    if (newScore > currentScore)
+                    {
+                        userRef.Child("score").SetValueAsync(newScore).ContinueWith(updateTask =>
+                        {
+                            if (updateTask.IsFaulted)
+                            {
+                                Debug.LogError(updateTask.Exception);
+                            }
+                            else if (updateTask.IsCompleted)
+                            {
+                                Debug.Log("Score actualizado correctamente.");
+                            }
+                        });
+                    }
+                    else
+                    {
+                        // El nuevo score no es mayor, no se actualiza
+                        Debug.Log("El nuevo score no es más alto que el score actual. No se realiza la actualización.");
+                    }
+                }
+            }
+        });
     }
 }

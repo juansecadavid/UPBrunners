@@ -28,16 +28,12 @@ public class Play : MonoBehaviour
         panelConfigPs = panelConfig.GetComponent<RectTransform>().position.y;
         LeanTween.moveY(panelGeneral.GetComponent<RectTransform>(), 0, 2f).setDelay(0.2f)
             .setEase(LeanTweenType.easeOutElastic);
-        StartCoroutine(PreCharge());
+        //StartCoroutine(PreCharge());
     }
     public void StartGame()
     {
         //SceneManager.LoadScene("LoadingScene1");
         startGame = true;
-    }
-    public void Prueba()
-    {
-        SceneManager.LoadScene("SceneTest");
     }
     public void ConfigPanel()
     {
