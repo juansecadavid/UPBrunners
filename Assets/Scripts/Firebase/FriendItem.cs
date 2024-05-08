@@ -14,6 +14,7 @@ public class FriendItem : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public Image image;
     public string userId;
+    private ShowOnlineNotification _showOnlineNotification;
 
     public void SetUp(string username, string Id, GameObject firebaseM)
     {
@@ -24,6 +25,7 @@ public class FriendItem : MonoBehaviour
 
     private void Start()
     {
+        _showOnlineNotification = GameObject.Find("OnlineNotification").GetComponent<ShowOnlineNotification>();
         FirebaseDatabase.DefaultInstance.GetReference("users/" + userId + "/online").ValueChanged += HandleOnlineStatusChanged;
         FirebaseDatabase.DefaultInstance.GetReference("users/" + userId + "/score").ValueChanged += HandleScoreChange;
     }
@@ -46,6 +48,16 @@ public class FriendItem : MonoBehaviour
         {
             if(image!=null)
                 image.color=Color.green;
+            if (_showOnlineNotification != null)
+            {
+                _showOnlineNotification.ShowNotification(usernameText.text);
+                Debug.Log("Obvio encontré el objeto");
+            }
+            else
+            {
+                Debug.Log("No encontré ese objeto");
+            }
+                
         }
         else
         {
@@ -65,7 +77,6 @@ public class FriendItem : MonoBehaviour
         
         int score = Convert.ToInt32(args.Snapshot.Value);
         string friendId = args.Snapshot.Key;
-
 
         if (scoreText != null)
             scoreText.text = $"{score}";
