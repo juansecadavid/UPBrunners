@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Firebase.Auth;
 using Firebase.Database;
+using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
 
@@ -93,6 +94,7 @@ public class FirebaseManager : MonoBehaviour
         DatabaseReference requestsRef = FirebaseDatabase.DefaultInstance.GetReference("users/" + FirebaseAuth.DefaultInstance.CurrentUser.UserId + "/friends");
         requestsRef.GetValueAsync().ContinueWith(task =>
         {
+            //ContinueWithOnMainThread
             if (task.IsFaulted)
             {
                 Debug.LogError("Error accessing database: " + task.Exception);
